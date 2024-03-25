@@ -185,7 +185,7 @@ public class order_mgr {
 			
 			Vector<r_inform> vlist = new Vector<r_inform>();
 
-			try {
+			try {  
 				con = pool.getConnection();
 				r_inform dto = new r_inform();
 					

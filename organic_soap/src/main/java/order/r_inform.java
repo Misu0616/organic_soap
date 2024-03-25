@@ -11,7 +11,7 @@ public class r_inform {
 	private String r_address2;
 	private String request;
 	private int r_mem_key;
-	
+	  
 	
 	public int getR_info_key() {
 		return r_info_key;

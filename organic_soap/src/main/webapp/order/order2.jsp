@@ -15,7 +15,7 @@
              	<h2>배송 정보 입력</h2>
                   	<section class="section1"> 
                     <div class="pointInfo"><p id="bold">포인트</p> 
-                        <p/>
+                        <p/> 
                         <div>
                             <label for="point"></label>
                             <input type="text" class="inputline" id="point" name="포인트" size="45" placeholder="0">

@@ -19,7 +19,7 @@
         <br>
         <p>Social Media : <a href="https://www.instagram.com/donggubat_story/"><span>INSTAGRAM</span></a> / <a href="https://mysterious-cloche-461.notion.site/eb68d5534ad4471ba51edb6b755b409a"><span>NOTION</span></a></p>
         <br>
-        <br>
+        <br>  
         <p><a href=""><span>개인정보처리방침</span></a> ｜ <a href=""><span>이용약관</span></a></p>
      </div>
 </body>

@@ -43,7 +43,7 @@
   <servlet>
   	<servlet-name>OrderServlet</servlet-name>
   	<servlet-class>order.OrderServlet</servlet-class>
-  </servlet>
+  </servlet> 
   <servlet-mapping>
 	<servlet-name>OrderServlet</servlet-name>
 	<url-pattern>/order/orderServlet</url-pattern>

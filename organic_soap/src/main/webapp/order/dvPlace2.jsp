@@ -47,7 +47,7 @@
                         </div>
                         <div class="div111">배송비 <span id="bold">3000원</span></div>
                     </div>
-                        <p/>
+                        <p/>  
                     <div class="odInfo">주문자 정보
                         <p/>
                         <div>

@@ -18,7 +18,7 @@
                     <input id="search1" type="text" name="search" placeholder="SEARCH">
                     <button id="icon" onclick="check()"><i class="material-icons">search</i></button>
                 </div>
-            </form>
+            </form>  
             <div class="header2">
                 <div id="logo"><a href="../index.html"><img src="../images/logo.png"></a></div>
                 <ul class="dropdown">

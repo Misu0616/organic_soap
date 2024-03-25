@@ -16,7 +16,7 @@ public class DvPlace2Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		
 			throws ServletException, IOException {
-		
+		  
 			request.setCharacterEncoding("utf-8");
 		
 			order_mgr oMgr = new order_mgr();

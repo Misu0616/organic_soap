@@ -235,7 +235,7 @@ function dv_send(){
 
 	  let is_checked = checkbox.checked;
 	  
-	  console.log("is_checked");
+	  console.log("is_checked"); 
 	 
 		if(is_checked == true){
 			document.submit.getElementById("person").value;

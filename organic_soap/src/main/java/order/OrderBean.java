@@ -8,7 +8,7 @@ public class OrderBean {
 	private int po_pay_key;
 	private int po_point_key;
 	private int po_cart_key;
-	
+	  
 	/* r_inform 컬럼 */
 	private int r_info_key;
 	private String r_name;

@@ -103,7 +103,7 @@
                         <button type="button" class="finalpay" name="paylast" value="lastpay" onclick="nextPage()">다음으로</button>
                     </div>
                 </form>
-            </section>
+            </section> 
 			<form name="dv1" method="post" action="dvPlace1.jsp">
 					<input type="hidden" name="pro_price" value="<%= pro_price%>">
 					<input type="hidden" name="pro_name" value="<%= pro_name%>">
