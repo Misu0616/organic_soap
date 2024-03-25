@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+}
+#logo a {
+    text-decoration: none;
+    color: #222;
+}
+.container {
+    width: 1800px;
+}
+
+/* 바디 시작 */
+
+.every{
+    box-sizing: border-box;
+    font-family: 'Gowun Dodum';
+   
+}
+.cate > ul > li {
+    list-style: none;
+    display: inline-block;
+}
+#gory1{
+    text-align: center;
+    margin-left: 50px;
+}
+#gory1, #gory2{
+    width: 50px;
+}
+#gory1 a:link, #gory1 a:visited, #gory2 a:link, #gory2 a:visited{
+    text-decoration: none;
+    color: black;
+}
+.cate ul li a:hover {
+	color: black;
+}
+.po1{
+    width: 1700px;
+    margin: 0 auto;
+    list-style: none;
+    display: inline-block;
+    padding-left: 100px;
+}
+#po2 {
+    display: inline-block;
+    padding-left: 60px;
+}
+#po3 {
+    width: 700px;
+    height:700px;
+}
+#small-pic {
+    padding-top: 5px;
+}
+.small {
+    width:100px;
+    height:100px; 
+    padding-right: 5px;
+}
+#small-pic img:hover {
+    cursor:pointer; }		
+#text{
+    width: 650px;
+    height: 800px;
+    float: right;
+    margin-right: 180px;
+}
+#heart{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding-left: 600px;
+}
+.material-symbols-outlined {
+    cursor:pointer;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24,
+}
+.tt{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.button{
+    padding: 10px 15px 10px 15px;
+    float: right;
+    margin-right: 10px;
+}
+.plusminus{
+    border: 1px solid lightgray;
+    width: 25px;
+}
+.zero{
+    display: inline-block;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.addOption{
+    display: inline-block;
+
+}
+.addOption1{
+    text-align: left;
+    font-size: 17px;
+    margin-right: 450px;
+    margin-left: 40px;
+}
+.addOption2{
+    text-align: right;
+    margin-top: -25px;
+}
+.optionTitle{
+    font-size: 15px;
+    text-align: left;
+}
+.plusminus{
+    background-color: rgba(244,195,178,0.5);
+    font-size: large;
+}
+.total_price{
+    margin-top: 10px;
+}
+.total_price1{
+    padding-top: 30px;
+    font-size: 19px;
+    display: inline-block;
+    margin-left: 40px;
+}
+.total_price2{
+    text-align: right;
+    font-size: 25px;
+    margin-left: 450px;
+    top: 100px;
+    padding-right: 80px;
+    margin-top: -30px;
+}
+#buy1, #buy2{
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    width: 250px;
+    height: 70px;
+    margin-top: 30px;
+    margin-left: 40px;
+
+}
+#buy1 {
+    border: 1px solid rgba(244,195,178);
+    background-color: rgb(244,195,178);
+    color: rgb(93, 93, 93);
+}
+#buy1:hover {
+    border: 1px solid rgb(244,195,178);
+    background-color: rgba(244,195,178,0.5);
+    
+}
+#buy1 a:link, #buy1 a:visited {
+    text-decoration: none;
+    color: rgb(93, 93, 93);
+}
+#buy2 {
+    border: 1px solid rgb(244,195,178);
+}
+#buy2:hover {
+    border: 1px solid rgb(244,195,178);
+    background-color: rgba(244,195,178,0.5);
+    
+}
+#buy2 a:link, #buy2 a:visited{
+    text-decoration: none;
+    color: rgb(93, 93, 93);
+    background-color: rgba(244,195,178,0.5);
+}
+.pos2 {
+    margin: 0 auto;
+}
+.menu {
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  padding-left: 700px;
+}
+#menu1, #menu2, #menu3, #menu4{
+   box-sizing: border-box;
+   display: inline-block;
+   width: 100px;
+   height: 50px;
+   padding-top: 50px;
+   padding-bottom: 30px;
+}
+#menu1 a:link, #buy1 a:visited, #menu2 a:link, #buy2 a:visited, 
+#menu3 a:link, #buy1 a:visited, #menu4 a:link, #buy2 a:visited
+{
+    text-decoration: none;
+}
+/* 상세페이지 시작 */
+.de1{
+    margin-top: 30px;
+    margin-left: 400px;
+}
+#de2{
+    margin-left: 300px;
+}
+.de3{
+    margin-left: 400px;
+    margin-top: -65px;
+}
+/* 상품정보제공고시 시작 */
+.info {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 380px;
+}
+#info_1 {
+    text-align: center;
+}
+#info_1 {
+    text-align: center;
+}
+#info_2, #info_3, #info_4{
+    padding: 20px 20px 20px 20px;
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    font-size: small;
+}
+#info_3{
+    width: 300px;
+    background-color: rgba(244,195,178,0.5);
+}
+#info_4{
+    width: 600px;
+    color: gray;
+}
+/* 상품정보제공고시 끝 */
+/* 상세페이지 끝 */
+/* 가이드 시작 */
+.gu1{
+    padding-left: 150px;
+}
+/* 가이드 끝 */
+/* 리뷰 시작*/
+.re1 {
+    padding-top: 5px;
+    padding-left: 100px;
+    margin-left : 50px
+}
+#re_1, #re_2{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid rgba(244,195,178,0.5);
+    border-radius: 5%;
+    background-color: rgba(244,195,178,0.5);
+    color: rgb(93, 93, 93);
+}
+#re_1 a:link, #re_1 a:visited,
+#re_2 a:link, #re_2 a:visited {
+    text-decoration: none;
+    color: rgb(93, 93, 93);
+   
+}
+#re_1 a:hover,
+#re_2 a:hover {
+    color: rgb(93, 93, 93);
+    
+}
+#re_2{
+    margin-left: 1300px;
+    margin-bottom: 20px;
+}
+#re_table {
+    width: 1200px;
+    border-collapse: collapse;
+    margin-left: 100px;
+
+}
+#re_grade, #re_title, #re_info {
+    padding: 20px 20px 20px 20px;
+    border-bottom: 1px solid lightgray;
+    font-size: small;
+}
+#re_grade {
+    width: 150px;
+    text-align: center;
+    color: rgb(245, 245, 39);
+    font-size: 20px;
+}
+#re_title {
+    padding-left: 20px;
+} 
+#re_title a {
+    text-decoration: none;
+    color: #222;
+}
+#re_info {
+    width: 200px;
+    text-align: center;
+   
+}
+/* 리뷰 끝*/
+/* Q&A 시작*/
+.qa1 {
+    padding-top: 5px;
+    padding-left: 100px;
+    margin-left : 50px
+}
+#qa_1, #qa_2{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid rgba(244,195,178,0.5);
+    border-radius: 5%;
+    background-color: rgba(244,195,178,0.5);
+    color: rgb(93, 93, 93);
+}
+#qa_1 a:link, #qa_1 a:visited{
+    text-decoration: none;
+    color: rgb(93, 93, 93);
+    
+}
+#qa_2 a:link, #qa_2 a:visited{
+    text-decoration: none;
+    color: rgb(93, 93, 93);
+}
+#qa_2{
+    background-color: rgb(255, 255, 255)
+}
+#qa_1 a:hover {
+   
+    color: rgb(93, 93, 93);
+}
+#qa_3{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+/* Q&A 끝*/
+/* 바디 끝 */
+
+
+/* 주석으로 구분해서 css 설정 작성 해주세요.*/

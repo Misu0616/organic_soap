@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+}
+#logo a {
+    text-decoration: none;
+    color: #222;
+}
+.container {
+    width: 1800px;
+}
+/* 본문 시작 */
+.every{
+    box-sizing: border-box;
+    font-family: 'Gowun Dodum';
+    
+}
+/* 상단메뉴 시작 */
+.menu {
+    padding-left: 150px;
+    padding-top: 20px;
+    font-family: 'Gowun Dodum';
+    font-size: large;
+}
+.top_menu{
+    padding-left: 100px;
+    
+}
+#to1, #to2, #to3, #to4 {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+} 
+#to2{
+    width: 100px;
+}
+#to1 a:link, #to1 a:visited,
+#to2 a:link, #to2 a:visited,
+#to3 a:link, #to3 a:visited,
+#to4 a:link, #to4 a:visited {
+    text-decoration: none;
+    color: black;
+}
+.mid_menu{
+    box-sizing: border-box;
+    display: inline-block;
+    padding-left: 100px;
+}
+#to4 {
+    margin-bottom: 30px;
+}
+/* 상단 메뉴 끝 */
+.items{
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 300px) ;
+    grid-template-rows: repeat(5, 450px);
+    grid-gap:20px 30px;
+    padding-left: 250px;
+    font-family: 'Gowun Dodum';
+}
+#save_1 {
+    border: none;
+    background-color: #fff;
+   
+}
+.item-te{
+    padding-left: 15px;
+    font-size: large;
+    text-align: center;
+    color: #252525;
+}
+.material-symbols-outlined {
+    padding-left: 145px;
+    cursor:pointer;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24,
+}
+/* 페이지 이동 */
+.page{
+    list-style: none;
+    width: 1800px;
+    padding-left: 930px;
+    font-size: large;
+    font-family: 'Gowun Dodum';   
+    color: #252525;
+}
+#page_1, #page_2{
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+#page_1 a:link, #page_1 a:visited,
+#page_2 a:link, #page_2 a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+
+/* 본문 끝 */
+
+/* 주석으로 구분해서 css 설정 작성 해주세요.*/
