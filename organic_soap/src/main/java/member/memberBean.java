@@ -2,7 +2,7 @@ package member;
 
 public class memberBean {
 	
-	private String mem_key;
+	private int mem_key;
 	private String mem_email;
 	private String mem_pw;
 	private String mem_tel;
@@ -11,10 +11,10 @@ public class memberBean {
 	private String mem_address2;
 	private String mem_postal_code;
 	
-	public String getMem_key() {
+	public int getMem_key() {
 		return mem_key;
 	}
-	public void setMem_key(String mem_key) {
+	public void setMem_key(int mem_key) {
 		this.mem_key = mem_key;
 	}
 	public String getMem_email() {
