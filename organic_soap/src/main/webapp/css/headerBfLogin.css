@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+h1, h2, p, div, button {
+    font-family: Gowun Dodum;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+/* 헤더 시작 */
+.container {
+    width: 1800px;
+    background-color: #fff;
+}
+.header1 {
+    background-color: rgba(244, 195, 178, 0.5);
+    height: 180px;
+    padding: 5px;
+}
+.search {
+    position: relative;
+    width: 100px;
+    margin-left: 50px;
+    top: 40px;
+  }
+.search input:focus{
+    outline: none;
+}
+#btn {
+    position: absolute;
+    width: 95px;
+    margin-top: 70px;
+}
+.header1 input {
+    width: 90px;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+#icon{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    width: 40px;
+    height: 36px; 
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 110px;
+   }
+#logo{
+    margin-top: 25px;
+}
+#logo a {
+    margin-left: 240px;
+}
+.header1 img {
+    width: 300px;
+    height: 80px;
+    margin-left: 485px;
+    padding-top: 25px;
+    margin-top: 5px;
+}
+.header1 div{
+    margin-top: 10px;
+}
+.header2 ul {
+	margin: 0;
+	padding: 10px 0 0;
+    top: -37px;
+    margin-left: 1050px;
+    width: 700px;
+	text-align: right;
+    text-decoration: none;
+}
+.header2 ul li {
+	display: inline;
+	list-style: none;
+	margin: 5px;
+	padding: 0 1px;
+}
+.header2 ul li a {
+	color: #252525;
+	display: inline-block;
+	font-size: 15px;
+	margin: 0;
+	padding: 0 0 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+    font-family: 'Gowun Dodum';
+    font-weight: 900;
+}
+.header2 ul li a:hover {
+	color: rgb(250, 136, 98);
+}
+
+.dropdown{
+    position : relative;
+    display : inline-block;
+  }
+.dropdown-content1, .dropdown-content2 {
+    display : none;
+    position : absolute;
+    z-index : 1;
+  }
+.dropdown-content1 {
+    background-color: rgba(244, 195, 178, 0.7);
+    border-radius: 5px;
+    width: 130px;
+    height: 100px;
+    text-align: center;
+}
+.dropdown-content2 {
+    background-color: rgba(244, 195, 178, 0.7);
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    margin-left: 395px;
+}
+.header2 .dropdown .pro1:hover .dropdown-content1 {
+    display: block;
+    top: 20px;
+    left: 371px;
+}
+.header2 .dropdown .pro1:hover .dropdown-content1 a {
+    display: block;
+    text-align: center;
+}
+.header2 .dropdown .pro2:hover .dropdown-content2 {
+    display: block;
+    top: 20px;
+    left: 91px;
+}
+.header2 .dropdown .pro2:hover .dropdown-content2 a {
+    display: block;
+    text-align: center;
+}

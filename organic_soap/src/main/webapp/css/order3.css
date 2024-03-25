@@ -1,0 +1,136 @@
+h2{
+    text-align: center;
+    padding: 50px;
+    font-size: 30px;
+}
+#div{
+    background-color: #fff;
+    position: relative;
+}
+.section1{
+    width: 570px;
+	margin:0 auto;
+}
+.div1{
+    background-color: white;
+    padding: 15px;
+    border: 2px solid lightgray;
+    border-radius:5px;
+}
+#boldline{
+    font-weight: bold;
+    border: 1px solid lightgray;
+}
+.div11{
+    border: 1px solid lightgray;
+    text-align: left;
+    position: relative;
+    display: block;
+}
+.imgSmall{
+    height: 100px;
+    width: 100px;
+    padding: 15px;
+    margin-bottom: -15px;
+}
+.div12{
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    top: -3px;
+    bottom: -10px;
+}
+#bold{
+    font-weight: bold;
+}
+#bordertop{
+    border-top: 1px solid lightgray;
+}
+.div111{
+    text-align: center;
+    background-color: lightgray;
+    padding: 3px;
+}
+.odInfo{
+    background-color: white;
+    border: 2px solid lightgray;
+    padding: 15px;
+    border-radius:5px;
+}
+.request{
+	width: 517px;
+    height: 70px;
+	resize:none;
+	padding: 6px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+.inputline{
+    padding: 6px;
+    border-radius: 3px;
+    border: 1px solid lightgray;
+}
+.dvInfo{
+    background-color: white;
+    padding: 15px;
+    border: 2px solid lightgray;
+    border-radius:5px;
+}
+.dvplace{
+	text-align:center;
+	margin-top:30px;
+	margin-bottom:30px;
+	background-color: rgba(244, 195, 178, 0.5);
+	width:532px;
+    border-radius: 3px;
+}
+.use {
+	width: 115px;
+    height: 36px;
+    padding-top: 2px;
+    padding-bottom: 7px;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+}
+.use:hover{
+    background-color: rgba(244, 195, 178);
+}
+.use2{
+	width: 171px;
+	height: 36px; 
+	padding-top: 2px; 
+	padding-bottom: 7px; 
+	background-color: transparent;
+    border: none; 
+    border-radius: 3px;
+}
+.use2:hover{
+    background-color: rgba(244, 195, 178);
+}
+.find_addr {
+    width: 90px;
+    height: 28px;
+    padding-top: 2px;
+    padding-bottom: 7px;
+    background-color: rgba(244, 195, 178, 0.5);
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+.find_addr:hover{
+    background-color: rgba(244, 195, 178);
+}
+.finalpay {
+    font-size: 17px;
+    height: 50px;
+    width: 570px;
+    color: #222;
+    font-weight: bold;
+    font-family: Gowun Dodum;
+    background-color: rgba(244, 195, 178, 0.5);
+    border: none;
+    border-radius:5px;
+}
+.finalpay:hover{
+    background-color: rgba(244, 195, 178);
+}
