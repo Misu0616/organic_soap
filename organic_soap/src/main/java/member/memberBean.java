@@ -2,7 +2,6 @@ package member;
 
 public class memberBean {
 	
-	
 	private String mem_key;
 	private String mem_email;
 	private String mem_pw;
