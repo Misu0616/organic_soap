@@ -1,0 +1,146 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+#container {
+    position: absolute;
+    width: 420px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+}
+.logo a {
+    font-size: 24px;
+    color: #222;
+}
+.logo h2 {
+    font-family: 'Gowun Dodum';
+    font-weight: bold;
+    text-align: center;
+}
+#login_m_text h2 {
+    font-family: 'Gowun Dodum';
+}
+input::placeholder {
+    font-family: 'Gowun Dodum';
+    padding-left: 5px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+input:focus {
+    outline: none;
+}
+
+#login_box {
+    width: 400px;
+    height: 300px;
+    border: 2px solid rgba(244, 195, 178, 0.5);
+    border-radius: 5%;
+
+}
+.login_m_text {
+    width: 400px;
+    height: 42px;
+    margin-top: 10px;
+}
+.login_m_text h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.input_user_data1 {
+    background-color: white;
+    width: 300px;
+    height: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+#input_email {
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    border: 0.3px solid lightgray;
+    border-radius: 2px;
+    padding: 5px;
+}
+.input_user_data2 {
+    background-color: white;
+    width: 300px;
+    height: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#input_pw {
+    box-sizing: border-box;
+    width: 300px;
+    height: 40px;
+    border: 0.3px solid lightgrey;
+    border-top: 0px;
+    border-radius: 2px;
+    padding: 5px;
+}
+.login_check_box {
+    box-sizing: border-box;
+    width: 350px;
+    height: 40px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+#input_checkbox {
+    margin: 0;
+    margin-top: 14px;
+    border: 0.5px solid grey;
+    width: 15px;
+    height: 15px;
+}
+#checkbox_text {
+    font-size: 15px;
+}
+.input_user_data3 {
+    margin-top: 15px;
+    width: 300px;
+    height: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+#login_button_submit {
+    width: 300px;
+    height: 40px;
+    background-color: rgb(63, 63, 63);
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 2px;
+}
+#login_button_text {
+    color: white;
+    font-size: 15px;
+}
+
+#login_button_submit:hover b{
+    color: rgb(233, 233, 0);
+}
+.link_register_box {
+    margin-left: 50px;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    float: left;
+}
+.link_search_box {
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    float: right;
+}
+#link_register {
+    text-align: left;
+    font-size: 15px;
+}
+#link_search {
+    text-align: right;
+    font-size: 15px;
+}

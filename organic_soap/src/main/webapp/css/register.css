@@ -1,0 +1,273 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@font-face {
+    font-family: 'Pretendard-Light';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+            }
+            @font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+body {
+    margin: 0;
+}
+#container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0px;
+}
+#logo {
+    margin-bottom: 10px;
+}
+#logo a {
+    text-decoration: none;
+    color: rgb(244, 195, 178);
+    font-size: 40px;
+    font-family: 'Gowun Dodum';
+    font-weight: 900;
+}
+#logo p {
+    text-align: center;
+    margin-bottom: 0px;
+    margin-top: 0;
+}
+#register_m_text {
+    font-family: 'Pretendard-Bold', cursive;
+}
+input::placeholder {
+    font-family: 'Pretendard-Light', cursive;
+    padding-left: 5px;
+}
+
+#register_box {
+    width: 550px;
+    height: 640px;
+    margin: 0px auto;
+    padding: 0;
+    margin-top: 80px;
+}
+#register_m_text {
+    text-align: center;
+    width: 400px;
+    height: 32px;
+}
+#register_m_text h2 {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#register_input {
+    width: 550px;
+    height: 640px;
+}
+.register_input_user_data1 {
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 7px;
+}
+#register_input_email {
+    box-sizing: border-box;
+    width: 400px;
+    height: 50px;
+    border: 0.3px solid lightgray;
+    border-radius: 2px;
+    padding: 5px;
+}
+.register_input_user_data2 {
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+#register_input_pw {
+    box-sizing: border-box;
+    width: 400px;
+    height: 50px;
+    border: 0.3px solid lightgrey;
+    border-top: 0px;
+    border-radius: 2px;
+    padding: 5px;
+}
+#user_profile_img {
+    box-sizing: border-box;
+    width: 550px;
+    height: 70px;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+#profile_img_dummy {
+    width: 150px;
+    height: 70px;
+    margin: 0px;
+}
+
+.register_input_user_data3 {
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+#register_input_pw2 {
+    box-sizing: border-box;
+    width: 400px;
+    height: 50px;
+    border: 0.3px solid lightgrey;
+    border-top: 0px;
+    border-radius: 2px;
+    padding: 5px;
+}
+.register_input_user_data6 {
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+#register_input_tel {
+    box-sizing: border-box;
+    width: 400px;
+    height: 50px;
+    border: 0.3px solid lightgrey;
+    border-radius: 2px;
+    padding: 5px;
+    border-top: 0;
+}
+#pw_mismatch {
+    margin-left: 75px;
+    font-family: 'Pretendard_bold';
+    font-size: 15px;
+    margin-top: 3px;
+    padding-left: 7px;
+    color: rgb(184, 30, 30);
+    display: none;
+}
+#register_user_name_text{
+    float: left;
+    position: absolute;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 15px;
+    font-size: 17px;
+}
+#register_dot {
+    position: relative;
+    width: 5px;
+    height: 5px;
+    background-color: blue;
+    border-radius: 50%;
+    left: 36px;
+    top: -12px;
+}
+.register_input_user_data4 {
+    background-color: white;
+    width: 400px;
+    height: 5px;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 40px;
+}
+#register_input_name {
+    box-sizing: border-box;
+    width: 400px;
+    height: 50px;
+    border: 0.3px solid lightgrey;
+    border-radius: 2px;
+    padding: 5px;
+}
+.register_input_user_data7 {
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 50px;
+    
+}
+#register_input_address1 {
+    box-sizing: border-box;
+    float: left;
+    width: 190px;
+    height: 40px;
+    border: 0.3px solid lightgrey;
+    border-radius: 2px;
+    padding: 5px;
+}
+#register_input_address2 {
+    box-sizing: border-box;
+    float: left;
+    width: 400px;
+    height: 40px;
+    border: 0.3px solid lightgrey;
+    border-radius: 2px;
+    padding: 5px;
+}
+.register_input_user_data8 {
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+#register_input_zip {
+    box-sizing: border-box;
+    float: right;
+    width: 190px;
+    height: 40px;
+    border: 0.3px solid lightgrey;
+    border-radius: 2px;
+    padding: 5px;
+}
+.input_user_data5 {
+    margin-top: 15px;
+    width: 400px;
+    height: 50px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+#register_button_submit {
+    width: 400px;
+    height: 50px;
+    background-color:  rgba(244,195,178,0.5);
+    border: none;
+    border-radius: 2px;
+}
+#register_button_text {
+    color: #222;
+    font-size: 15px;
+}
+#register_button_submit:hover{
+    background-color: rgb(244,195,178);
+}
+
+
+/* 푸터 시작 */
+.footer {
+	top : 30px;
+    height: 110px;
+    width: 300px;
+    margin: auto;
+    background-color: #fff;
+    font-size: 12px;
+    bottom: 0px;
+}
+.footer a {
+    text-decoration: none;
+    color: #222;
+}
+
+/* 푸터 끝 */
