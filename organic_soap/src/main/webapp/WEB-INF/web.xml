@@ -76,4 +76,22 @@
 	<url-pattern>/order/dvPlace3Servlet</url-pattern>
   </servlet-mapping>
 
+ <servlet>
+  	<servlet-name>addDvPlaceServlet</servlet-name>
+  	<servlet-class>order.addDvPlaceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>addDvPlaceServlet</servlet-name>
+	<url-pattern>/order/addDvPlaceServlet</url-pattern>
+  </servlet-mapping>
+
+ <servlet>
+  	<servlet-name>Order2Servlet</servlet-name>
+  	<servlet-class>order.Order2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>Order2Servlet</servlet-name>
+	<url-pattern>/order/order2Servlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

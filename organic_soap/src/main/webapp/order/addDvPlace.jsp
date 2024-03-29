@@ -4,22 +4,29 @@
 <%@ page import ="product.productBean" %>
 <%@ page import="order.r_inform" %>
 <jsp:useBean id="oMgr" class="order.order_mgr" />
+
+
 <%
+
+//입력 끝나고 이 페이지로 sendredirect 되면, 이 페이지 에서는 select 메서드 호출만.
+//select 메서드는 return 타입이 배열. 
+// 배열을 for문으로 출력 한다.
+
 	request.setCharacterEncoding("utf-8");
 	
-	String pro_name = request.getParameter("pro_name");
-	String pro_img = request.getParameter("pro_img");
-	String pro_price = request.getParameter("pro_price");
-	String cart_tot = request.getParameter("cart_tot");
-	String mem_name = request.getParameter("mem_name");
-	String mem_tel = request.getParameter("mem_tel");
-	String mem_email = request.getParameter("mem_email");
-	String mem_postal_code = request.getParameter("mem_postal_code");
-	String mem_address1 = request.getParameter("mem_address1");
-	String mem_address2 = request.getParameter("mem_address2");
+	String pro_name = (String) request.getAttribute("pro_name");
+	String pro_img = (String) request.getAttribute("pro_img");
+	int  pro_price = (int) request.getAttribute("pro_price");
+	String cart_tot = (String) request.getAttribute("cart_tot");
+	String mem_name = (String) request.getAttribute("mem_name");
+	String mem_tel = (String) request.getAttribute("mem_tel");
+	String mem_email = (String) request.getAttribute("mem_email");
+	String mem_postal_code = (String) request.getAttribute("mem_postal_code");
+	String mem_address1 = (String) request.getAttribute("mem_address1");
+	String mem_address2 = (String) request.getAttribute("mem_address2");
+	int mem_key = (int) request.getAttribute("mem_key");
 
-	String mem_key = request.getParameter("mem_key");
-	
+	int r_mem_key_count = (int) request.getAttribute("r_mem_key_count");
 %>
 <!DOCTYPE html>
 <html>
@@ -30,6 +37,7 @@
 <script type="text/javascript" src="../js/order.js"></script>
 </head>
 <body>
+<input type="hidden" id="count1" value="<%=r_mem_key_count%>">
 	<jsp:include page="../include/headerLogin.jsp" />
             <div id="div">
                 <h2>배송 정보 입력</h2>
@@ -43,15 +51,16 @@
                             <p id="bold"><%=pro_price%>원</p>
                         </div>
                         </div>
-                        <%
-						    int a;
-						    if (Integer.parseInt(request.getParameter("pro_price")) < 30000) {
-						        a = 3000;
+						<%
+						    int a = Integer.parseInt(request.getParameter("pro_price"));
+							int b = 0;
+						    if ( a < 30000) {
+						        b = 3000;
 						    } else {
-						        a = 0;
+						        b = 0;
 						    }
 						%>
-                        <div class="div111">배송비 <span id="bold"><%=a%>원</span></div>
+                        <div class="div111">배송비 <span id="bold"><%=b%>원</span></div>
                     </div>
                         <p/>
                     <div class="odInfo">주문자 정보
@@ -82,51 +91,48 @@
                             	</p>
                             </div>
                         <p/> 
-                        <% 
-	                        Vector<r_inform> vlist = null;
-	                    	vlist = oMgr.getdvPlace3(Integer.parseInt(mem_key));
-	                    	
-	                    	int vlistsize = vlist.size();
-	                    	
-	                    	  for(int i = 0; i < vlist.size(); i++) {
-                     		
-                     			r_inform dto = vlist.get(i);
-                     		
-	                     		int r_info_key = dto.getR_info_key();
-	                     		String r_name = dto.getR_name();
-	                     		String r_phone = dto.getR_phone();
-	                     		String r_postal_code = dto.getR_postal_code();
-	                     		String r_address1 = dto.getR_address1();
-	                     		String r_address2 = dto.getR_address2();
-	                     		String memo = dto.getRequest();
-	                     		int r_mem_key = dto.getR_mem_key();
-                     		
-                     		if(dto.getR_name() != null) {
-                     			%>
-                     			   
+	                        <% oMgr.insertRinform(request,response);
+                           				
+	                           Vector<r_inform> vlist = null;
+	                           vlist = oMgr.selectR_inform(mem_key);
+		                    	
+	                           	int vlistsize = vlist.size();
+	                           	
+	                           		for (int i =0; i<vlist.size(); i++){
+	                           			r_inform dto = vlist.get(i);
+	                           			
+	                           			String r_name = dto.getR_name();
+	                           			String r_phone = dto.getR_phone();
+	                           			String r_porstal_code = dto.getR_postal_code();
+	                           			String r_address1 = dto.getR_address1();
+	                           			String r_address2 = dto.getR_address2();
+	                           			String memo = dto.getRequest();
+	                           			
+	                           			if(dto.getR_name() != null) {
+	                           		
+	                           %>
+                     			 
                             <label for="person"></label>
-                            <input type="text" class="inputline" id="person" name="r_name" value="<%= dto.getR_name() %>" placeholder="수령인" size="32" required>
+                            <input type="text" class="inputline" id="person" name="r_name" value="<%=r_name %>" placeholder="수령인" size="32">
                             <label for="number"></label>
-                            <input type="tel" class="inputline" id="number" name="r_phone" value="<%= dto.getR_phone() %>" placeholder="연락처" size="31.8" required>
+                            <input type="tel" class="inputline" id="number" name="r_phone" value="<%=r_phone %>" placeholder="연락처" size="31.8">
                         <p/>
                             <label for="addrn"></label>
-                            <input type="text" class="inputline" id="postal" name="r_postal_code" value="<%= dto.getR_postal_code() %>" placeholder="우편번호" size="14" required>
+                            <input type="text" class="inputline" id="postal" name="r_postal_code" value="<%=r_porstal_code %>" placeholder="우편번호" size="14">
                             <button type="button" name="findaddr" value="주소 찾기" class="find_addr" onclick="findmap()">주소 찾기</button>
                         <p/>
                             <label for="addr"></label>
-                            <input type="text" class="inputline" id="addr1" name="r_address1" value="<%= dto.getR_address1() %>" placeholder="주소" size="70" required>
+                            <input type="text" class="inputline" id="addr1" name="r_address1" value="<%= r_address1 %>" placeholder="주소" size="70">
                         <p/>
                             <label for="det"></label>
-                            <input type="text" class="inputline" id="addr2" name="r_address2" value="<%= dto.getR_address2() %>" placeholder="상세주소" size="70" required>
+                            <input type="text" class="inputline" id="addr2" name="r_address2" value="<%=r_address2 %>" placeholder="상세주소" size="70">
                         <p/>
                             <p id="bold">배송 메모</p>
                             <p/>
                         <textarea class="request" name="memo" id="memo" placeholder="배송 메모를 입력해주세요."><%=memo%></textarea>
                         <label for="check1"></label>
-                       <%
-                     			    }
-                        %>
-                        <% } %>
+                        <% }
+	                           			} %>
                         <p/>
                         <input type="hidden" name="mem_key" id="memkey" value="1">
                     </div>
@@ -146,6 +152,7 @@
 					<input type="hidden" name="mem_postal_code" value="<%= mem_postal_code%>">
 					<input type="hidden" name="mem_key" value="<%=mem_key%>">
                 </form>
+                
             </section>
          </div>
     <jsp:include page="../include/footer.jsp" />
@@ -153,6 +160,14 @@
 </html>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
+
+window.onload = function(){
+	if("<%=r_mem_key_count%>" == 3) {
+		alert("배송지는 3개를 초과할 수 없습니다.");
+		console.log("notice 실행 완료");
+	}
+}
+
 //배송 정보 주문자의 정보와 동일하게
 function is_check() {
 	  
@@ -178,41 +193,26 @@ function is_check() {
 
 function dv_place1(){
 	
-	document.ordFrm.action = "dvPlace1.jsp";
-	document.ordFrm.submit();
+	document.ordFrm1.action = "dvPlace1.jsp";
+	document.ordFrm1.submit();
 }
 
 function dv_place2(){
 	
-	document.ordFrm.action = "dvPlace2.jsp";
-	document.ordFrm.submit();
+	document.ordFrm1.action = "dvPlace2.jsp";
+	document.ordFrm1.submit();
 }
 
 function dv_place3(){
 	
-	document.ordFrm.action = "dvPlace3.jsp";
-	document.ordFrm.submit();
+	document.ordFrm1.action = "dvPlace3.jsp";
+	document.ordFrm1.submit();
 }
 function addDv1(){
-	document.ordFrm.action = "addDvPlaceServlet";
-	document.ordFrm.submit();
+	document.ordFrm1.action = "addDvPlaceServlet";
+	document.ordFrm1.submit();
 }
-function dv_send(){
-	let checkbox = document.getElementById('check2');
 
-	  let is_checked = checkbox.checked;
-	  
-	  console.log("is_checked"); 
-	 
-		if(is_checked == true){
-			document.submit.getElementById("person").value;
-			document.submit.getElementById("number").value;
-			document.submit.getElementById("postal").value; 
-			document.submit.getElementById("addr1").value;
-			document.submit.getElementById("addr2").value; 
-		}
-	
-}
 
 function findmap() {
     new daum.Postcode({

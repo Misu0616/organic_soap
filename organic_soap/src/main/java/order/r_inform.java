@@ -11,8 +11,15 @@ public class r_inform {
 	private String r_address2;
 	private String request;
 	private int r_mem_key;
-	  
+	private int r_mem_key_count;
 	
+	
+	public int getR_mem_key_count() {
+		return r_mem_key_count;
+	}
+	public void setR_mem_key_count(int r_mem_key_count) {
+		this.r_mem_key_count = r_mem_key_count;
+	}
 	public int getR_info_key() {
 		return r_info_key;
 	}
