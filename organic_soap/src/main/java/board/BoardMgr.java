@@ -15,7 +15,7 @@ public class BoardMgr {
 	private DBConnectionMgr pool = new DBConnectionMgr();
 
 	//파일 업로드 관련 설정 작성
-		private static final String  SAVEFOLDER = "C:/jsp/board/src/main/webapp/filestorage";
+		private static final String  SAVEFOLDER = "C:/jsp/organic_soap/src/main/webapp/filestorage";
 		private static final String ENCTYPE = "UTF-8";
 		private static int MAXSIZE = 10*1024*1024;
 
@@ -44,12 +44,12 @@ public class BoardMgr {
 			con = pool.getConnection();
 			//keyWord 값이 없는 경우 게시물 조회
 			if (keyWord.equals("null") || keyWord.equals("")) {
-				sql = "select * from board_list order by board_key desc, board_key limit ?, ?";
+				sql = "select * from board order by board_key desc, board_key limit ?, ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setInt(1, start);
 				pstmt.setInt(2, end);
 			} else { //keyField 와 keyWord 값이 있는 경우 게시물 조회
-				sql = "select * from  board_list where " + keyField + " like ? ";
+				sql = "select from  board where " + keyField + " like ? ";
 				sql += "order by board_key desc, board_key limit ? , ?";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");
@@ -86,10 +86,10 @@ public class BoardMgr {
 			
 			//keyField , keyWord 값이 없는 경우 총 게시물 가져오기
 			if (keyWord.equals("null") || keyWord.equals("")) {
-				sql = "select count(board_key) from board_list";
+				sql = "select count(board_key) from board";
 				pstmt = con.prepareStatement(sql);
 			} else { //keyField, keyWord 값이 있는 경우 총 게시물 가져오기
-				sql = "select count(board_key) from  board_list where " + keyField + " like ? ";
+				sql = "select count(board_key) from  board where " + keyField + " like ? ";
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, "%" + keyWord + "%");
 			}
@@ -121,7 +121,7 @@ public class BoardMgr {
 				
 				try {
 					con = pool.getConnection();
-					sql = "select max(board_key) from board_list"; //게시물이 총 몇개 인지 조회하는 쿼리
+					sql = "select max(board_key) from board"; //게시물이 총 몇개 인지 조회하는 쿼리
 					pstmt = con.prepareStatement(sql);
 					rs = pstmt.executeQuery();
 					
@@ -137,7 +137,7 @@ public class BoardMgr {
 					}
 					String board_content = multi.getParameter("board_content");
 
-					sql = "insert board_list(board_subject,board_content,board_count,board_date,board_file_name,board_write)";
+					sql = "insert board(board_subject,board_content,board_count,board_date,board_file_name,board_write)";
 					sql += "values(?, ?, 0, NOW(), ?, ?)";
 					
 					pstmt = con.prepareStatement(sql);
@@ -169,7 +169,7 @@ public class BoardMgr {
 				
 				try {
 					con = pool.getConnection();
-					sql = "select * from board_list where board_key=?";
+					sql = "select * from board where board_key=?";
 					pstmt = con.prepareStatement(sql);
 					
 					pstmt.setInt(1, board_key);
@@ -199,7 +199,7 @@ public class BoardMgr {
 				
 				try {
 					con = pool.getConnection();
-					sql = "update board_list set board_count=board_count+1 where board_key=?";
+					sql = "update board set board_count=board_count+1 where board_key=?";
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, board_key);
 					pstmt.executeUpdate();
@@ -222,13 +222,20 @@ public class BoardMgr {
 					
 					try {
 						con = pool.getConnection();
-						sql = "select board_file_name from board_list where board_key = ?";
+						sql = "select board_file_name from board where board_key = ?";
 						pstmt = con.prepareStatement(sql);
 						pstmt.setInt(1, board_key);
 						rs = pstmt.executeQuery();
 						
-						//board_key를 이용하여 board_list 테이블의 컬럼을 찾아서 delete 쿼리문으로 해당 컬럼 삭제. 
-						sql = "delete from board_list where board_key=?";
+						if (rs.next() && rs.getString(1) != null) {
+							if (!rs.getString(1).equals("")) {
+								File file = new File(SAVEFOLDER + "/" + rs.getString(1));
+								if (file.exists())
+									UtilMgr.delete(SAVEFOLDER + "/" + rs.getString(1));
+							}
+						}
+						//board_key를 이용하여 board 테이블의 컬럼을 찾아서 delete 쿼리문으로 해당 컬럼 삭제. 
+						sql = "delete from board where board_key=?";
 						
 						pstmt = con.prepareStatement(sql);
 						pstmt.setInt(1, board_key);
@@ -249,12 +256,13 @@ public class BoardMgr {
 				try {
 					con = pool.getConnection();
 					
-					sql = "update board_list set board_subject=?,board_content=?,board_file_name=? where board_key=?";
+					sql = "update board set board_subject=?,board_content=?,board_file_name=? where board_key=?";
 					
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, bean.getBoard_subject());
 					pstmt.setString(2, bean.getBoard_content());
 					pstmt.setString(3, bean.getBoard_file_name());
+					pstmt.setInt(4, bean.getBoard_key());
 					pstmt.executeUpdate();
 					
 				} catch (Exception e) {
@@ -263,4 +271,12 @@ public class BoardMgr {
 					pool.freeConnection(con, pstmt);
 				}
 			}
+			
+			
+			
+			
+			
+			
+			
+			
 }

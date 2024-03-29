@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@page import="board.BoardBean"%>
 <%@page import="java.util.Vector"%>
+<%@page import="member.memberBean" %>
 <jsp:useBean id="bMgr" class="board.BoardMgr" />
 <%	
 	  request.setCharacterEncoding("UTF-8");
@@ -48,18 +49,20 @@
 	nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock);
 	
 	totalBlock = (int)Math.ceil((double)totalPage / pagePerBlock);
+	
+	String mem_mail = (String)session.getAttribute("emailKey");
 %>
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OrganicSOAPS</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>OrganicSOAPS</title>
+        <link rel="stylesheet" href="../css/board_list.css">
+    </head>
+    <body>
+ <jsp:include page="../include/headerLogin.jsp" />
+    
 
-</head>
-
-<body>
-        <jsp:include page="../include/headerLogin.jsp"></jsp:include>
+        <!-- 본문 시작 -->
         <main>
         <div class="main">
             <h2>공지사항</h2>
@@ -98,6 +101,7 @@
                             <td><%=board_write%></td>
                             <td><%=board_count%></td>
                         </tr>
+                        
                         <%}%>
                     </tbody>
 			<tr>
@@ -123,15 +127,17 @@
                 </table>
                 <!-- 게시판 목록 끝 -->
                 <!-- 글쓰기 버튼 -->
-                <div class="write">
-                    <a href="board_write.jsp">글쓰기</a>
-                </div>
+              <%if(mem_mail != null && mem_mail.equals("imm@naver.com")) {%>
+ 			<input type="button" value="글쓰기" class="btn" 
+         		onclick="location.href='notice_write.jsp'">
+<%}%>
                 <!-- 글쓰기 버튼 끝 -->
             </div>
             </div>
         </main>
+        <!-- 본문 끝 -->
 
-
+ <jsp:include page="../include/footer.jsp" />
         
 		<form name="listFrm" method="post">
 			<input type="hidden" name="reload" value="true"> 
@@ -143,7 +149,6 @@
 			<input type="hidden" name="keyField" value="<%=keyField%>"> 
 			<input type="hidden" name="keyWord" value="<%=keyWord%>">
 		</form>
-		<jsp:include page="../include/footer.jsp"></jsp:include>
     </body>
 </html>
 <script>
@@ -177,15 +182,4 @@
 	  document.searchFrm.submit();
 	 }
 
-	/*
-	function visibleMoreBtn() {
-	    if (id == "관리자") {
-	      moreBtnEl.style.visibility = 'visible';
-	    } else {
-	      moreBtnEl.style.visibility = 'hidden';
-	    }
-	  }
-	*/
-	
-	
 </script>

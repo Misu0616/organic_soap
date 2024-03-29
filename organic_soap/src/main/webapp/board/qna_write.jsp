@@ -1,7 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="board.QnaBean"%>
+<%@page import="java.util.Vector"%>
+<jsp:useBean id="qMgr" class="board.QnaMgr" />
+<%
+request.setCharacterEncoding("UTF-8");
+int qna_mem_key = Integer.parseInt(request.getParameter("qna_mem_key"));
+
+%>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +19,17 @@
 <body>
 		<jsp:include page="../include/headerLogin.jsp" />
 
-    <!-- 본문 시작 -->
-    <main>
-        <h2>공지사항</h2>
+   <main>
+        <h2>1:1문의</h2>
         <hr>
-        <form name="postFrm" method="post" action="boardPost" enctype="multipart/form-data">
+        <form name="postFrm" method="post" action="qnaPost" enctype="multipart/form-data">
             <div class="size">
             <ul>
-                <li>제목&nbsp;&nbsp; <input type="text" name="board_subject" id="t_text" required style="width: 600px; height: 30px;"></li>
+                <li>제목&nbsp;&nbsp; <input type="text" name="qna_subject" id="t_text" required style="width: 600px; height: 30px;"></li>
+                <li>비밀번호&nbsp;&nbsp; <input type="password" class="text" name="qna_pass" style="width: 200px; height: 30px;"></li>
                 <li style="border-bottom: none;">본문</li>
                 <li>
-                    <textarea id="editor" name="board_content" required cols="100" rows="30"></textarea></li>
+                    <textarea id="editor" name="qna_content" required cols="100" rows="30"></textarea></li>
                 <li>
                     <div>첨부파일&nbsp;
                         <label for="attach">
@@ -35,12 +43,10 @@
 			<div class="write_btn">
 				<button type="button" onclick="history.back(-1)" style="width: 80px; height: 40px; font-size: 20px;"><strong>이전</strong></button>
 				<button type="submit" onclick="check();" style="width: 80px; height: 40px; font-size: 20px;"><strong>등록</strong></button>
-				<input type="hidden" name="board_write" value="관리자"> 
+				<input type="hidden" name="qna_mem_key" value="<%=qna_mem_key%>">
 			</div>
         </form>
 </main>
-<!-- 본문 끝 -->
-
 		<jsp:include page="../include/footer.jsp" />
 </body>
 </html>

@@ -1,0 +1,258 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+}
+#logo a {
+    text-decoration: none;
+    color: #222;
+}
+.container {
+    width: 1800px;
+}
+/* 헤더 시작 */
+.header {
+    background-color: rgba(244, 195, 178, 0.5);
+    padding: 5px;
+}
+.header h1{
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    margin-right: 230px;
+    font-size: 40px;
+    font-family: 'Gowun Dodum';
+    font-weight: 900;
+}
+.search {
+    position: relative;
+    width: 100px;
+    float: left;
+    margin-left: 150px;
+    top: 30px;
+  }
+.header input {
+    width: 100%;
+    border: 1px solid rgba(213, 213, 213);
+    border-radius: 3px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+.header img {
+    position : absolute;
+    width: 17px;
+    top: 10px;
+    right: 1px;
+    margin: 0;
+  }
+.btn{
+    background-color: transparent;
+    border: 0;
+   }
+.btn img{
+   height: 20px;
+   width: 20px;
+   }
+.header div{
+    margin-top: 10px;
+}
+#header ul {
+	margin: 0;
+	padding: 10px 0 0;
+    top: -37px;
+    margin-left: 1050px;
+    width: 700px;
+	text-align: right;
+    text-decoration: none;
+}
+#header ul li {
+	display: inline;
+	list-style: none;
+	margin: 5px;
+	padding: 0 1px;
+}
+#header ul li a {
+	color: #252525;
+	display: inline-block;
+	font-size: 15px;
+	margin: 0;
+	padding: 0 0 3px;
+	text-decoration: none;
+	text-transform: uppercase;
+    font-family: 'Gowun Dodum';
+    font-weight: 900;
+}
+#header ul li a:hover {
+	color: rgb(250, 136, 98);
+}
+
+.dropdown{
+    position : relative;
+    display : inline-block;
+  }
+  
+.dropdown-content1, .dropdown-content2 {
+    display : none;
+    position : absolute;
+    z-index : 1;
+  }
+.dropdown-content1 {
+    background-color: rgba(244, 195, 178, 0.7);
+    border-radius: 5px;
+    width: 130px;
+    height: 100px;
+    text-align: center;
+}
+
+.dropdown-content2 {
+    background-color: rgba(244, 195, 178, 0.7);
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    margin-left: 395px;
+}
+
+#header .dropdown .pro1:hover .dropdown-content1 {
+    display: block;
+    top: 20px;
+    left: 312px;
+}
+#header .dropdown .pro1:hover .dropdown-content1 a {
+    display: block;
+    text-align: center;
+}
+#header .dropdown .pro2:hover .dropdown-content2 {
+    display: block;
+    top: 20px;
+    left: 35px;
+}
+#header .dropdown .pro2:hover .dropdown-content2 a {
+    display: block;
+    text-align: center;
+}
+/* 헤더 끝 */
+
+/* 메인 시작 */
+.main {
+    background-color: #fff;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin: 0 auto;
+}
+.main > h2 {
+    font-size: 20px;
+    font-weight: 400px;
+    padding: 0px 0px 0px 250px;
+    margin-bottom: -32px;
+}
+table {
+    border-collapse: collapse;
+    width: 1300px;
+}
+ul {
+    list-style: none;
+}
+thead {
+    border-top: 1px solid black;
+    border-bottom: 1px solid #ccc;
+}
+th, td {
+    text-align: center;
+    height: 50px;
+}
+th {
+    font-weight: bold;
+    font-size: 20px;
+}
+tbody {
+    border-bottom: 1px solid #ccc;
+}
+main > li {
+    display: inline;
+}
+.on > ul {
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+.on > ul > li {
+    font-size: 18px;
+}
+.b_search {
+    position: relative;
+    margin: 0px 0px 30px 1423px;
+    width: 100px;
+}
+.b_search  input {
+    width: 100%;
+    border: 1px solid #bbb;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+.b_search  img {
+    position: absolute;
+    width: 17px;
+    top: 10px;
+    right: -20px;
+    margin: 0;
+}
+td a {
+    text-decoration: none;
+    color: black;
+}
+.on a {
+    text-decoration: none;
+    color: blue;
+}
+#b_title {
+    padding-left: 30px;
+    text-align: left;
+}
+.b_list {
+    margin: 0 250px;
+}
+.on {
+    margin-top: -90px;
+    margin-left: 1250px;
+}
+.write {
+    margin: 20px 0;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    background-color: rgba(244,195,178,0.5);
+    color: rgb(255, 255, 255);
+}
+.write > a {
+    text-decoration: none;
+}
+.write:hover {
+    background-color: rgb(244,195,178);
+}
+
+/* 메인 끝 */
+
+/* 푸터 시작 */
+.footer {
+    height: 350px;
+    padding: 50px 50px 50px 100px;
+    background-color: #fff;
+    font-size: 12px;
+    bottom: 0px;
+}
+.footer a {
+    text-decoration: none;
+    color: #222;
+}
+/* 푸터 끝 */
+
+/* 주석으로 구분해서 css 설정 작성 해주세요.*/

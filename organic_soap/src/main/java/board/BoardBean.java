@@ -9,8 +9,17 @@ public class BoardBean {
 	private String board_date;
 	private String board_file_name;
 	private String board_write;
+	private String mem_level;
 	
 	
+	
+	
+	public String getMem_level() {
+		return mem_level;
+	}
+	public void setMem_level(String mem_level) {
+		this.mem_level = mem_level;
+	}
 	public int getBoard_key() {
 		return board_key;
 	}

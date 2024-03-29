@@ -29,7 +29,7 @@ public class BoardPostServlet extends HttpServlet {
 		bMgr.insertBoard(request);
 		
 		//응답 시 list.jsp 페이지로 이동한다.
-		response.sendRedirect("board_list2.jsp");
+		response.sendRedirect("board_list.jsp");
 	}
 }
 

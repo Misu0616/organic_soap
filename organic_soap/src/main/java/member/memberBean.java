@@ -10,7 +10,14 @@ public class memberBean {
 	private String mem_address1;
 	private String mem_address2;
 	private String mem_postal_code;
+	private String mem_level;
 	
+	public String getMem_level() {
+		return mem_level;
+	}
+	public void setMem_level(String mem_level) {
+		this.mem_level = mem_level;
+	}
 	public int getMem_key() {
 		return mem_key;
 	}

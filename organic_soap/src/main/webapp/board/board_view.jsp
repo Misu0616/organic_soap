@@ -3,6 +3,8 @@
 <%@page import="board.BoardBean"%>
 <jsp:useBean id="bMgr" class="board.BoardMgr" />
 <%
+//String sId = (String)session.getAttribute("sId)";
+// 세션에 저장된 아이디(sId) 가져와서 변수에 저장
 	  request.setCharacterEncoding("UTF-8");
 
 	  int board_key = Integer.parseInt(request.getParameter("board_key"));
@@ -22,11 +24,11 @@
 	  int board_count = bean.getBoard_count();
 	  
 	  session.setAttribute("bean", bean);//게시물을 세션에 저장
-	  
-		String url = "board_list.jsp?nowPage=" + nowPage;
+
+		String mem_mail = (String)session.getAttribute("emailKey");
 %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +36,7 @@
     <link rel="stylesheet" href="../css/board_edit.css">
 </head>
 <body>
-<jsp:include page="../include/headerLogin.jsp"></jsp:include>
+  <jsp:include page="../include/headerLogin.jsp" />
 
     <main>
         <h1>공지사항</h1>
@@ -49,29 +51,29 @@
                             </div>
                     <hr>
                     <div class="button">
-            <form method="get" action="board_list.jsp" name="">
-                <input type="button" value="목록" onclick="window.location='board_list.jsp'" style="width: 50px; height: 30px;">
-                <input type="button" value="수정" onclick="window.location='board_update.jsp'" style="width: 50px; height: 30px;">
+            <%if(mem_mail != null && mem_mail.equals("imm@naver.com")) {%>
+            <form method="get" action="board_list.jsp">
+                
+
+				<input type="button" value="목록" onclick="window.location='board_list.jsp?nowPage=<%=nowPage%>&board_key=<%=board_key%>'" style="width: 50px; height: 30px;">
+                <input type="button" value="수정" onclick="window.location='board_update.jsp?nowPage=<%=nowPage%>&board_key=<%=board_key%>'" style="width: 50px; height: 30px;">
                 </form>
-                <form method="get" action="board_list.jsp" name="delFrm">
+                <form method="post" action="boardDelete" name="delFrm">
                 
             	<input type="button" value="삭제" onclick="check()" style="width: 50px; height: 30px;" >
+                <input type="hidden" name="board_key" value="<%=board_key%>">
+                <input type="hidden" name="nowPage" value="<%=nowPage%>"> 
                 
                 </form>
+                <%}%>
             </div>
     </main>
-
-
-<jsp:include page="../include/footer.jsp"></jsp:include>
+<jsp:include page="../include/footer.jsp" />
 </body>
 </html>
 <script>
-
-
-
-function check() {bMgr.deleteBoard(board_key);
-
-response.sendRedirect(url);
+function check() {
+	alert("삭제 되었습니다.")
 	document.delFrm.submit();
 }
 </script>
