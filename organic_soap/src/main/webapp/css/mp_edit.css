@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+}
+#logo a {
+    text-decoration: none;
+    color: #222;
+}
+.container {
+    width: 1800px;
+}
+
+/* 주석으로 구분해서 css 설정 작성 해주세요.*/
+
+/* 컨텐츠 공간 시작 */
+.mypage {
+    background-color: #FAFAFA;
+    width: 100%;
+    min-height: 500px;
+    font-family: 'Gowun Dodum';
+}
+#edit {
+    box-sizing: content-box;
+    width: 500px;
+    height: 1000px;
+    background-color: #fff;
+    display: inline-block;
+    padding: 10px 30px 20px 30px;
+    margin-top: 50px;
+    position: relative;
+    left: 200px;
+}
+#edit div {
+    text-align: center;
+}
+#edit p {
+    text-align: left;
+    margin-left: 100px;
+}
+#edit div form input:not([type=checkbox]) {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #EFEFEF;
+}
+#edit div form input[type=checkbox], #edit div form label {
+    float: left;
+    margin-left: 50px;
+}
+#edit button {
+    width: 310px;
+    height: 50px;
+    background-color: rgba(244, 195, 178, 0.5);
+    color: #222;
+    border: none;
+}
+#edit button:hover {
+    background-color: rgb(244, 195, 178);
+}
+#icon {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid #EFEFEF;
+    margin: 0 auto;
+}
+
+/* 컨텐츠 공간 끝 */
+
+/* 사이드바 시작 */
+#sidebar ul {
+    list-style-type: none;
+    float: left;
+    margin-right: 200px;
+    margin-left: 70px;
+    padding-top: 50px;
+    height: max-content;
+}
+#sidebar a {
+    text-decoration: none;
+    color: #222;
+    font-size: 15px;
+    line-height: 2em;
+}
+/* 사이드바 끝 */

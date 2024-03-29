@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+}
+#logo a {
+    text-decoration: none;
+    color: #222;
+}
+.container {
+    width: 1800px;
+}
+
+/* 주석으로 구분해서 css 설정 작성 해주세요.*/
+
+/* 컨텐츠 공간 시작 */
+.mypage {
+    background-color: #FAFAFA;
+    width: 100%;
+    min-height: 500px;
+    font-family: 'Gowun Dodum';
+}
+#profile {
+    box-sizing: content-box;
+    width: 1000px;
+    height: 130px;
+    background-color: #fff;
+    display: inline-block;
+    padding: 10px 30px 20px 30px;
+    margin-top: 70px;
+}
+#profile a {
+    text-decoration: none;
+    color: #222;
+}
+
+/* 컨텐츠 공간 끝 */
+
+/* 사이드바 시작 */
+#sidebar ul {
+    list-style-type: none;
+    float: left;
+    margin-right: 200px;
+    margin-left: 70px;
+    padding-top: 50px;
+    height: max-content;
+}
+#sidebar a {
+    text-decoration: none;
+    color: #222;
+    font-size: 15px;
+    line-height: 2em;
+}
+/* 사이드바 끝 */
+
+/* 프로필 공간 시작*/
+#icon {
+    display: inline;
+    border-radius: 50%;
+    border: 1px solid #EFEFEF;
+    margin-top: 20px;
+    float: left;
+}
+#info {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 2em;
+    padding-left: 30px;
+    padding-top: 40px;
+}
+#name {
+    font-size: 25px;
+}
+#point {
+    display: inline;
+    float: right;
+    border-left: 1px solid #222;
+    line-height: 10px;
+    padding: 0px 80px 0px 100px;
+    margin-top: 25px;
+    text-align: center;
+}
+#num {
+    font-size: 35px;
+    line-height: 0px;
+}
+/* 프로필 공간 끝 */
+
+/* 위시리스트 시작 */
+.wish_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1060px;
+    justify-content: left;
+    margin-left: 415px;
+}
+#wrapper {
+    display: block
+}
+.card {
+    text-align: center;
+    position: relative;
+}
+.card img {
+    width: 250px;
+    height: 250px;
+}
+.card_detail {
+    display: block;
+    text-align: center;
+    position: relative;
+}
+.card_detail p {
+    text-align: center;
+}
+.card_detail span {
+    font-size: 20px;
+    font-weight: bold;
+}
+.card_detail a {
+    text-decoration: none;
+    color: #222;
+}
+.card:hover {
+    filter: brightness(0.7);
+    transition: 0.5s ease;
+}
+.card:hover button{
+    opacity: 100%;
+}
+.card button {
+    background: none;
+    border: none;
+    position: absolute;
+    left: 245px;
+    top: 20px;
+    font-size: 20px;
+    opacity: 0%;
+    color: #222;
+}
