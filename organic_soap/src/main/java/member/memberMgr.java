@@ -132,7 +132,7 @@ public class memberMgr {
 		return email;
 	}
 	
-	public int sessionKey(String mem_email) {
+	public String sessionKey(String mem_email) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -156,8 +156,6 @@ public class memberMgr {
 			pool.freeConnection(con, pstmt, rs);
 		}
 		
-		int mem_key = Integer.parseInt(key);
-		
-		return mem_key;
+		return key;
 	}
 }

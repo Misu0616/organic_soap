@@ -21,7 +21,7 @@
 		  
 		  if(result){
 			 
-			int mem_key = mMgr.sessionKey(mem_email);
+			String mem_key = mMgr.sessionKey(mem_email);
 			  
 		    session.setAttribute("mem_key",mem_key);
 		    msg = "로그인에 성공 하였습니다.";
