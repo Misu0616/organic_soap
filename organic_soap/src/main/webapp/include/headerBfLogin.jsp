@@ -4,8 +4,8 @@
 	String search="";
 %>
 
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html> 
+<html> 
 <head>
 <meta charset="UTF-8">
 <title>OrganicSOAPS</title>
@@ -17,39 +17,39 @@
 <div class="container">
         <!-- header 시작. 로그인되지 않은 상태 -->
         <div class="header1">
-                <form name="hSearchFrm" method="get" action="../product/search_product.jsp">
+                <form name="hSearchFrm" method="post" action="#">
                     <div class="search" id="btn">
                         <input id="search1" type="text" name="search" placeholder="SEARCH">
                         <button id="icon" onclick="check()"><i class="material-icons">search</i></button>
                     </div>
                 </form>  
             <div class="header2">
-                <div id="logo"><a href="../index.html"><img src="../images/logo.png"></a></div>
+                <div id="logo"><a href="../index.jsp"><img src="../images/logo.png"></a></div>
                 <ul class="dropdown">
                     <li class="selected">
-                        <a href="../index.html">home</a>
+                        <a href="../index.jsp">home</a>
                     </li>
                     <li class="pro1">
-                        <a href="../product/product_list_all.html">product</a>
+                        <a href="../product/product_list_all.jsp">product</a>
                         <div class="dropdown-content1">
-                            <a href="product_list_all.html">ALL</a>
-                            <a href="product_1_hair.html">HAIR</a>
-                            <a href="product_1_face.html">FACE / BODY</a>
-                            <a href="product_1_living.html">LIVING</a>
+                            <a href="../product/product_list_all.jsp">ALL</a>
+                            <a href="../product/product_1_hair.jsp">HAIR</a>
+                            <a href="../product/product_1_face.jsp">FACE / BODY</a>
+                            <a href="../product/product_1_living.jsp">LIVING</a>
                         </div>
                     </li>
                     <li class="pro2">
-                        <a href="../board/board_main1.html">help center</a>
+                        <a href="../board/board_main1.jsp">help center</a>
                         <div class="dropdown-content2">
-                            <a href="../board/board_main1.html">NOTICE</a>
-                            <a href="../board/board_main1.html" style="text-transform: none;">QnA</a>
+                            <a href="../board/board_list.jsp">NOTICE</a>
+                            <a href="../board/qna_list.jsp" style="text-transform: none;">QnA</a>
                         </div>
                     </li>
                     <li>
-                        <a href="../login/login.html">Join</a>
+                        <a href="../member/register.jsp">Join</a>
                     </li>
                     <li>
-                        <a href="../login/login.html">Login</a>
+                        <a href="../member/login.jsp">Login</a>
                     </li>
                 </ul>
             </div>
@@ -64,7 +64,7 @@
 		document.hSearchFrm.search.focus();
 		return;
 	} else {
-		document.hSearchFrm.action="../product/search_product.jsp";
+		document.hSearchFrm.action="../product/good_search.jsp";
 		document.hSearchFrm.submit();
 		}
 	}

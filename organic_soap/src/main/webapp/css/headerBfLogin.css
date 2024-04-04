@@ -4,15 +4,15 @@ h1, h2, p, div, button {
     font-family: Gowun Dodum;
 }
 
-body {
+body { 
     display: flex;
     justify-content: center;
-}
+} 
 /* 헤더 시작 */
 .container {
     width: 1800px;
     background-color: #fff;
-}  
+}   
 .header1 {
     background-color: rgba(244, 195, 178, 0.5);
     height: 180px;
