@@ -135,7 +135,7 @@ public class memberMgr {
 	public String sessionKey(String mem_email) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		ResultSet rs = null; 
 		String sql = null;
 		String key = null;
 		
