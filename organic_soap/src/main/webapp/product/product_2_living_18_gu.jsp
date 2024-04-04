@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="mMgr" class="member.memberMgr"/>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,8 +14,15 @@
     <body>
         <div class="container">
             <!-- header 시작 -->
-           <%@include file="../include/headerLogin.jsp" %><p/>  
-            <!-- 헤더 끝 -->
+			<% String mem_key = (String)session.getAttribute("mem_key");
+			 if (mem_key == null){%>
+				 <jsp:include page="../include/headerBfLogin.jsp" />
+			 	
+			 	<% }else{%>
+			 	<jsp:include page="../include/headerLogin.jsp" />
+			 	<% } %>
+			
+			<!-- header 끝. -->
 
             <!-- 본문 시작 -->
              <div class="every">
@@ -23,7 +32,12 @@
                         <li id="gory2"><a href="product_1_living.jsp"><h3>&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;Living</h3></a></li>
                     </ul>
                 </div>   
-                <form>     
+                <form name="pro" method="post"> 
+					<input type="hidden" name="pro_img" value="living_18.png"> 
+					<input type="hidden" name="pro_name" value="씹는 고체치약 대용량 180정"> 
+					<input type="hidden" name="pro_price" id="price11">
+					<input type="hidden" name="pro_count" id="result11">
+					         
                     <div class="po1">
                         <div id="po2">
                             <img src="../images/living_18.png" id="po3" onclick="displaySrc()">
@@ -74,9 +88,9 @@
                                     <p/>
                                     <div>
                                         <div class="buy">
-                                            <div id="buy1"><a href="#"><h3>구매하기</h3></a></div>
-                                            <div id="buy2"><a href="#"><h3>장바구니</h3></a></div>
-                                        </div>
+	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
+	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+	                                    </div>
                                     </div>
                                 </div>
                             </div>

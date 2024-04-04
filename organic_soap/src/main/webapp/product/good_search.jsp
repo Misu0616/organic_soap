@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Vector" %>
 <%@ page import="product.productBean" %>
-<jsp:useBean id ="proBean" class="product.productBean"/> 
+<jsp:useBean id ="proBean" class="product.productBean"/>
 <jsp:useBean id = "oMgr" class="order.order_mgr"/>
 <jsp:useBean id="mMgr" class="member.memberMgr"/>
 
@@ -90,8 +90,7 @@ if(mem_key !=null){
                                     <p><%=pro_name %></p>
                                     <p><%=pro_price %>원</p>
                                 </div> 
-                            </a>       
-                            <span class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</span>
+                            </a> 
                         </div> 
                         <% } %>
                     </div> 

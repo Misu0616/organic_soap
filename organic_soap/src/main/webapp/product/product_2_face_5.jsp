@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="mMgr" class="member.memberMgr"/>
+    
 <!DOCTYPE html>
 <html>
  <head>
@@ -12,8 +14,15 @@
     <body>
         <div class="container">
             <!-- header 시작 -->
-            <%@include file="../include/headerLogin.jsp" %><p/>
-            <!-- 헤더 끝 -->
+			<% String mem_key = (String)session.getAttribute("mem_key");
+			 if (mem_key == null){%>
+				 <jsp:include page="../include/headerBfLogin.jsp" />
+			 	
+			 	<% }else{%>
+			 	<jsp:include page="../include/headerLogin.jsp" />
+			 	<% } %>
+			
+			<!-- header 끝. -->
 
             <!-- 본문 시작 -->
              <div class="every">
@@ -23,7 +32,10 @@
                         <li id="gory2"><a href="product_1_face.jsp"><h3>&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;Face</h3></a></li>
                     </ul>
                 </div>   
-                <form>     
+               <form name="pro" method="post" action="wishServlet">	
+                	<input type="hidden" name="wish_pro_key" value="17">
+					<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">   
+					     
                     <div class="po1">
                         <div id="po2">
                             <img src="../images/face_5.png" id="po3" onclick="displaySrc()">
@@ -39,7 +51,14 @@
                             <div id="heart"> 
                                 <span class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite </span>
                             </div>
+                </form> 
                             <hr>
+                <form name="pro" method="post" action="productServlet">				
+					<input type="hidden" name="pro_count" id="result11">
+					<input type="hidden" name="pro_price" id="price11">
+					<input type="hidden" name="cart_pro_key" value="17">
+					<input type="hidden" name="cart_mem_key" value="<%= mem_key%>">
+			
                             <div class="tt">
                                 <p><b>겉돌지 않고 밀착되는 수분 충전 저자극 무향 핸드크림</b></p>
                                 <br>
@@ -75,9 +94,9 @@
                                     <p/>
                                     <div>
                                         <div class="buy">
-                                            <div id="buy1"><a href="#"><h3>구매하기</h3></a></div>
-                                            <div id="buy2"><a href="#"><h3>장바구니</h3></a></div>
-                                        </div>
+	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
+	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+	                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -220,13 +239,10 @@
                 <div style="margin-left: 150px; margin-right: 150px;"><hr></div>
 
                 <div class="qa1" id="q&a">
-                    <div>구매하시려는 상품에 대해 궁금한 점이 있으면 문의주세요.</div>
-                    <div id="qa_1"><a href="#">상품 문의</a></div>
-                    <div id="qa_2"><a href="#">1:1 문의</a></div>
-                    
-                    <div id="qa_3">등록된 문의가 없습니다.</div>
+                     구매하시려는 상품에 대해 궁금한 점이 있으면 문의주세요.
+                    <div id="qa_1"><a href="../board/qna_list.jsp">1:1 문의</a></div>                   
                 </div>
-                <!--Q%A끝--> 
+           		<!--Q%A끝--> 
                 <!-- 본문 끝 -->
                 <!-- 푸터 시작 -->
                 <%@include file="../include/footer.jsp" %><p/>
@@ -236,6 +252,7 @@
     </body>
 </html>
 <script>
+
 // 이미지 변경
     var po3 = document.querySelector("#po3");
     var smallPics = document.querySelectorAll(".small");
@@ -249,45 +266,57 @@
         po3.setAttribute("src", newPic);
     } 
 // 수량 
+	let a = document.querySelector('#result1'); // div태그
+	let b = document.querySelector('#result11'); //input태그
+	let c = document.querySelector('#price'); // div태그
+	let d = document.querySelector('#price11'); //input태그
 
 function count(type)  {
-            const resultElement = document.getElementById('result1');
-            let resultTotal = document.getElementById('price');
-            let number = resultElement.innerText;
-            let total = (number * 13000) +13000;
-           
-            console.log("total 변수 값 = " + total);
-
             
+            let total = (parseInt(a.textContent) * 13000) +13000;
+            
+
             if(type === 'plus') {
-                number = parseInt(number) + 1;
+ 
+            	let countplus = parseInt(a.textContent) + 1;
+            
+            	a.innerText = countplus;
+            	b.value = countplus;
+            	console.log("div 태그 = " + a.textContent);
+            	console.log("인풋태그 value = " + b.value);
+            	
             }
-             if(number < 1){
+             if(a.textContent < 1){
                 return;
             }
-        
-            resultElement.innerText = number;
-            resultTotal.innerText = total;
+                      
+            c.innerText = total;
+            d.value = total;
+            console.log("div price 태그 = " + c.textContent);
+            console.log("인풋태그 price 태그 = " + d.value);
+            
         }
    
 function count2(type)  {
-            const resultElement = document.getElementById('result1');
-            let resultTotal = document.getElementById('price');
-            let number = resultElement.innerText;
-            let total = (number * 13000) -13000;
            
-            console.log("total 변수 값 = " + total);
-
-            
+            let total = (parseInt(a.textContent) * 13000) -13000;
+          
             if(type === 'minus') {
-                number = parseInt(number) -1;
+            	let countplus = parseInt(a.textContent) - 1;
+                
+            	a.innerText = countplus;
+            	b.value = countplus;
+            	console.log("div 태그 = " + a.textContent);
+            	console.log("인풋태그 value = " + b.value);
             }
-            if(number < 1){
+            if(a.textContent < 1){
                 return;
             }
         
-            resultElement.innerText = number;
-            resultTotal.innerText = total;
-        }
-       
+            c.innerText = total;
+            d.value = total;
+            console.log("div price 태그 = " + c.textContent);
+            console.log("인풋태그 price 태그 = " + d.value);
+        }    
+        
 </script>

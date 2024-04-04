@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="mMgr" class="member.memberMgr"/>
+    
 <!DOCTYPE html>
 <html>
-lang="ko">
     <head>
         <meta charset="UTF-8">
         <title>OrganicSOAPS</title>
@@ -13,8 +14,15 @@ lang="ko">
     <body>
         <div class="container">
             <!-- header 시작 -->
-           <%@include file="../include/headerLogin.jsp" %><p/>
-            <!-- 헤더 끝 -->
+			<% String mem_key = (String)session.getAttribute("mem_key");
+			 if (mem_key == null){%>
+				 <jsp:include page="../include/headerBfLogin.jsp" />
+			 	
+			 	<% }else{%>
+			 	<jsp:include page="../include/headerLogin.jsp" />
+			 	<% } %>
+			
+			<!-- header 끝. -->
 
             <!-- 본문 시작 -->
              <div class="every">
@@ -24,7 +32,12 @@ lang="ko">
                         <li id="gory2"><a href="product_1_face.jsp"><h3>&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;Face</h3></a></li>
                     </ul>
                 </div>   
-                <form>     
+                <form name="pro" method="post"> 
+					<input type="hidden" name="pro_img" value="face_5.png"> 
+					<input type="hidden" name="pro_name" value="올바른 핸드크림 시어버터"> 
+					<input type="hidden" name="pro_price" id="price11">
+					<input type="hidden" name="pro_count" id="result11">
+					          
                     <div class="po1">
                         <div id="po2">
                             <img src="../images/face_5.png" id="po3" onclick="displaySrc()">
@@ -76,9 +89,9 @@ lang="ko">
                                     <p/>
                                     <div>
                                         <div class="buy">
-                                            <div id="buy1"><a href="#"><h3>구매하기</h3></a></div>
-                                            <div id="buy2"><a href="#"><h3>장바구니</h3></a></div>
-                                        </div>
+	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
+	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+	                                    </div>
                                     </div>
                                 </div>
                             </div>
@@ -172,6 +185,7 @@ lang="ko">
     </body>
 </html>
 <script>
+
 // 이미지 변경
     var po3 = document.querySelector("#po3");
     var smallPics = document.querySelectorAll(".small");
@@ -185,46 +199,57 @@ lang="ko">
         po3.setAttribute("src", newPic);
     } 
 // 수량 
+	let a = document.querySelector('#result1'); // div태그
+	let b = document.querySelector('#result11'); //input태그
+	let c = document.querySelector('#price'); // div태그
+	let d = document.querySelector('#price11'); //input태그
 
 function count(type)  {
-            const resultElement = document.getElementById('result1');
-            let resultTotal = document.getElementById('price');
-            let number = resultElement.innerText;
-            let total = (number * 13000) +13000;
-           
-            console.log("total 변수 값 = " + total);
-
             
+            let total = (parseInt(a.textContent) * 13000) +13000;
+            
+
             if(type === 'plus') {
-                number = parseInt(number) + 1;
+ 
+            	let countplus = parseInt(a.textContent) + 1;
+            
+            	a.innerText = countplus;
+            	b.value = countplus;
+            	console.log("div 태그 = " + a.textContent);
+            	console.log("인풋태그 value = " + b.value);
+            	
             }
-             if(number < 1){
+             if(a.textContent < 1){
                 return;
             }
-        
-            resultElement.innerText = number;
-            resultTotal.innerText = total;
+                      
+            c.innerText = total;
+            d.value = total;
+            console.log("div price 태그 = " + c.textContent);
+            console.log("인풋태그 price 태그 = " + d.value);
+            
         }
    
 function count2(type)  {
-            const resultElement = document.getElementById('result1');
-            let resultTotal = document.getElementById('price');
-            let number = resultElement.innerText;
-            let total = (number * 13000) -13000;
            
-            console.log("total 변수 값 = " + total);
-
-            
+            let total = (parseInt(a.textContent) * 13000) -13000;
+          
             if(type === 'minus') {
-                number = parseInt(number) -1;
+            	let countplus = parseInt(a.textContent) - 1;
+                
+            	a.innerText = countplus;
+            	b.value = countplus;
+            	console.log("div 태그 = " + a.textContent);
+            	console.log("인풋태그 value = " + b.value);
             }
-            if(number < 1){
+            if(a.textContent < 1){
                 return;
             }
         
-            resultElement.innerText = number;
-            resultTotal.innerText = total;
-        }
-       
-</script>
+            c.innerText = total;
+            d.value = total;
+            console.log("div price 태그 = " + c.textContent);
+            console.log("인풋태그 price 태그 = " + d.value);
+        }    
 
+</script>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
+    <jsp:useBean id="mMgr" class="member.memberMgr"/>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,8 +13,15 @@
     </head>
     <body>
 	    <div class="container">
-		    <!-- header 시작 -->
-			<%@include file="../include/headerLogin.jsp" %><p/>  
+			<!-- header 시작 -->
+			<% String mem_key = (String)session.getAttribute("mem_key");
+			 if (mem_key == null){%>
+				 <jsp:include page="../include/headerBfLogin.jsp" />
+			 	
+			 	<% }else{%>
+			 	<jsp:include page="../include/headerLogin.jsp" />
+			 	<% } %>
+			
 			<!-- header 끝. -->
 		
 		    <!-- 본문 시작 -->  
@@ -33,26 +42,95 @@
 		        <div class="items">
 		
 		            <div class="item-ima" >
-		                <a href="product_2_living_21.jsp" style="text-decoration-line: none;">
-		                    <img src="../images/living_21.png" width="300px" height="300px">
-		                    <div class="item-te">
-		                        <p>올바른 설거지 워싱바 500g</p>
-		                        <p>14,000원</p>
-		                    </div>
-		                </a>
-		                <span class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite </span>
+		            	<form method="post" action="wishServlet">
+				            <input type="hidden" name="wish_pro_key" value="53">
+							<input type="hidden" name="wish_mem_key" value="1">
+			                <a href="product_2_living_21.jsp" style="text-decoration-line: none;">
+			                    <img src="../images/living_21.png" width="300px" height="300px">
+			                    <div class="item-te">
+			                        <p>올바른 설거지 워싱바 500g</p>
+			                        <p>14,000원</p>
+			                    </div>
+			                </a>
+			                <button class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</button> 
+						</form>
 		            </div> 
 		
 		            <div class="item-ima" >
-		                <a href="product_2_living_22.jsp" style="text-decoration-line: none;"
-		                    ><img src="../images/living_22.png" width="300px" height="300px">
-		                    <div class="item-te">
-		                        <p>올바른 설거지 워싱바 150g</p>
-		                        <p>6,000원</p>
-		                    </div>
-		                </a>
-		                <span class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite </span>
+		            	<form method="post" action="wishServlet">
+				            <input type="hidden" name="wish_pro_key" value="54">
+							<input type="hidden" name="wish_mem_key" value="1">
+			                <a href="product_2_living_22.jsp" style="text-decoration-line: none;">
+			                    <img src="../images/living_22.png" width="300px" height="300px">
+			                    <div class="item-te">
+			                        <p>올바른 설거지 워싱바 150g</p>
+			                        <p>6,000원</p>
+			                    </div>
+			                </a>
+			                <button class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</button> 
+						</form>
 		            </div>
+		            
+		            <div class="item-ima" >
+		            	<form method="post" action="wishServlet">
+				            <input type="hidden" name="wish_pro_key" value="55">
+							<input type="hidden" name="wish_mem_key" value="1">
+			                <a href="product_2_living_23.jsp" style="text-decoration-line: none;">
+			                 	<img src="../images/living_23.png" width="300px" height="300px">
+			                    <div class="item-te">
+			                        <p>선물용 쇼핑백 (소)</p>
+			                        <p>1,500원</p>
+			                    </div>
+			                </a>
+			                <button class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</button> 
+						</form>
+		            </div>
+		            
+		            <div class="item-ima" >
+		            	<form method="post" action="wishServlet">
+				            <input type="hidden" name="wish_pro_key" value="56">
+							<input type="hidden" name="wish_mem_key" value="1">
+			                <a href="product_2_living_24.jsp" style="text-decoration-line: none;">
+			                    <img src="../images/living_24.png" width="300px" height="300px">
+			                    <div class="item-te">
+			                        <p>스테인리스 고리집개</p>
+			                        <p>1,000원</p>
+			                    </div>
+			                </a>
+			                <button class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</button> 
+						</form>
+		            </div>
+		            
+		            <div class="item-ima" >
+		            	<form method="post" action="wishServlet">
+				            <input type="hidden" name="wish_pro_key" value="57">
+							<input type="hidden" name="wish_mem_key" value="1">
+			                <a href="product_2_living_25.jsp" style="text-decoration-line: none;">
+			                    <img src="../images/living_25.png" width="300px" height="300px">
+			                    <div class="item-te">
+			                        <p>삼베 비누망</p>
+			                        <p>3,000원</p>
+			                    </div>
+			                </a>
+			                <button class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</button> 
+						</form>
+		            </div>
+		            
+		            <div class="item-ima" >
+		            	<form method="post" action="wishServlet">
+				            <input type="hidden" name="wish_pro_key" value="58">
+							<input type="hidden" name="wish_mem_key" value="1">
+			                <a href="product_2_living_26.jsp" style="text-decoration-line: none;">
+			                    <img src="../images/living_26.png" width="300px" height="300px">
+			                    <div class="item-te">
+			                        <p>순면 비누 거품망</p>
+			                        <p>4,000원</p>
+			                    </div>
+			                </a>
+			                <button class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite</button> 
+						</form>
+		            </div>
+		            
 		        </div>
 		    
 		        
