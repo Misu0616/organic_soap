@@ -111,7 +111,7 @@ if(mem_key !=null){
                             <label for="mail"></label>
                             <input type="email" class="inputline" id="mail" name="email" value="<%=mem_email %>" placeholder="이메일" size="70" required>
                         </div>
-                    </div>
+                    </div> 
                         <p/> 
                     <div class="dvInfo"><p id="bold">배송 정보</p>   
                         <p/> 
