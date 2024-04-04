@@ -105,6 +105,59 @@ public class memberMgr {
 		return flag;
 	}
 	
+	public String searchId(String mem_name) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String email = null;
+		
+		try {
+			con = pool.getConnection();
+			
+			sql = "select mem_email from members where mem_name = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_name);		
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				email = rs.getString("mem_email");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		return email;
+	}
 	
-
+	public int sessionKey(String mem_email) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		String key = null;
+		
+		try {
+			con = pool.getConnection();
+			
+			sql = "select mem_key from members where mem_email = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mem_email);		
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				key = rs.getString("mem_key");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		int mem_key = Integer.parseInt(key);
+		
+		return mem_key;
+	}
 }

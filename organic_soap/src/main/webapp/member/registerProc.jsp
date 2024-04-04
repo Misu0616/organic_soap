@@ -16,22 +16,33 @@
 </head>
 <body>
 	<%
-		boolean result = mgr.registerMember(bean);
+		String mem_email = request.getParameter("mem_email");
+		
+		boolean check = mgr.checkEmail(mem_email);
 		
 		String msg = "회원가입에 실패하였습니다. 다시 시도해주세요.";
 		
 		String location = "register.jsp";
 		
-		if(result) {
-			msg = "회원가입이 완료되었습니다.";
+		if(check) {
+			msg = mem_email + "은(는) 이미 사용중인 이메일입니다.";
+		} 
+		
+		else {
+			boolean result = mgr.registerMember(bean);
+		
+			if(result) {
+				msg = "회원가입이 완료되었습니다.";
 			
-			location = "../index.jsp";
+				location = "../index.jsp";
+			}	
 		}
-	%>
+	%> 
+	
 </body>
 </html>
 <script>
-	alert("<%=msg%>");
-	
-	location.href = "<%=location%>"
+alert("<%=msg%>");
+
+location.href = "<%=location%>"
 </script>
