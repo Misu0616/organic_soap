@@ -101,7 +101,7 @@ if(mem_key !=null){
                     </div>
                         <p/>
                     <div class="odInfo">주문자 정보
-                        <p/>
+                        <p/> 
                         <div>
                             <label for="name"></label>
                             <input type="text" class="inputline" id="name" name="name" value="<%=mem_name %>" placeholder="이름" size="32" required>
