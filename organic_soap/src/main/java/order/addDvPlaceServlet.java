@@ -18,8 +18,8 @@ public class addDvPlaceServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		int mem_key = Integer.parseInt(request.getParameter("mem_key"));
 		
+		String mem_key = request.getParameter("mem_key");
 		String pro_name = request.getParameter("pro_name");
 		String pro_img = request.getParameter("pro_img");
 		int pro_price = Integer.parseInt(request.getParameter("pro_price"));
@@ -27,6 +27,7 @@ public class addDvPlaceServlet extends HttpServlet {
 		String mem_name = request.getParameter("mem_name");
 		String mem_tel = request.getParameter("mem_tel");
 		String mem_email = request.getParameter("mem_email");
+		String mem_pw = request.getParameter("mem_pw");
 		String mem_postal_code = request.getParameter("mem_postal_code");
 		String mem_address1 = request.getParameter("mem_address1");
 		String mem_address2 = request.getParameter("mem_address2");

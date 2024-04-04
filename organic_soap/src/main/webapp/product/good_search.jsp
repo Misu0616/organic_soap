@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Vector" %>
 <%@ page import="product.productBean" %>
-<jsp:useBean id ="proBean" class="product.productBean"/>
+<jsp:useBean id ="proBean" class="product.productBean"/> 
 <jsp:useBean id = "oMgr" class="order.order_mgr"/>
 <jsp:useBean id="mMgr" class="member.memberMgr"/>
 

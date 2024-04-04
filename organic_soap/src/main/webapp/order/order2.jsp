@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="mMgr" class="member.memberMgr"/>
 <%
 	request.setCharacterEncoding("utf-8");
 	
-	String pro_name = (String) request.getAttribute("pro_name");
-	String pro_img = (String) request.getAttribute("pro_img");
-	int  pro_price = (int) request.getAttribute("pro_price");
-	String cart_tot = (String) request.getAttribute("cart_tot");
-	String mem_name = (String) request.getAttribute("mem_name");
-	String mem_tel = (String) request.getAttribute("mem_tel");
-	String mem_email = (String) request.getAttribute("mem_email");
-	String mem_postal_code = (String) request.getAttribute("mem_postal_code");
-	String mem_address1 = (String) request.getAttribute("mem_address1");
-	String mem_address2 = (String) request.getAttribute("mem_address2");
-	int mem_key = (int) request.getAttribute("mem_key");
+	String pro_name = request.getParameter("pro_name");
+	String pro_img =  request.getParameter("pro_img");
+	int  pro_price = Integer.parseInt(request.getParameter("pro_price"));
+	int cart_tot = Integer.parseInt(request.getParameter("cart_tot"));
+	int cart_qty = Integer.parseInt(request.getParameter("cart_qty"));
+	String mem_name = request.getParameter("mem_name");
+	String mem_tel = request.getParameter("mem_tel");
+	String mem_email = request.getParameter("mem_email");
+	String mem_postal_code = request.getParameter("mem_postal_code");
+	String mem_address1 = request.getParameter("mem_address1");
+	String mem_address2 = request.getParameter("mem_address2");
 	
 	String r_name = request.getParameter("r_name");
 	String r_phone = request.getParameter("r_phone");
@@ -23,30 +24,11 @@
 	String memo = request.getParameter("memo");
 	
 	int my_point = (int) request.getAttribute("my_point");
-	int use_point = (int) request.getAttribute("use_point");
-	int get_point = (int) request.getAttribute("get_point");
+	int use_point = 0;
 	
-	System.out.println("ord2.jsp , pro_name = " + pro_name);
-	System.out.println("ord2.jsp , pro_img = " + pro_img);
-	System.out.println("ord2.jsp , pro_price = " + pro_price);
-	System.out.println("ord2.jsp , mem_name = " + mem_name);
-	System.out.println("ord2.jsp , mem_tel = " + mem_tel);
-	System.out.println("ord2.jsp , mem_email = " + mem_email);
-	System.out.println("ord2.jsp , mem_postal_code = " + mem_postal_code);
-	System.out.println("ord2.jsp , mem_address1 = " + mem_address1);
-	System.out.println("ord2.jsp , mem_address2 = " + mem_address2);
-
-	System.out.println("ord2.jsp , mem_key = " + mem_key);
-	System.out.println("ord2.jsp , r_name = " + r_name);
-	System.out.println("ord2.jsp , r_phone = " + r_phone);
-	System.out.println("ord2.jsp , r_postal_code = " + r_postal_code);
-	System.out.println("ord2.jsp , r_address1 = " + r_address1);
-	System.out.println("ord2.jsp , r_address2 = " + r_address2);
-	System.out.println("ord2.jsp , memo = " + memo);
-	
-	System.out.println("ord2.jsp , my_point = " + my_point);
-	System.out.println("ord2.jsp , use_point = " + use_point);
-	System.out.println("ord2.jsp , get_point = " + get_point);
+	int total_price = Integer.parseInt(request.getParameter("total_price"));
+	int od_tot = Integer.parseInt(request.getParameter("od_tot"));
+	int od_r_info_key = Integer.parseInt(request.getParameter("od_r_info_key"));
 	
 %>
 <!DOCTYPE html>
@@ -58,24 +40,34 @@
 <script type="text/javascript" src="../js/order.js"></script>
 </head>
 <body>
+<%
+
+String mem_key = (String)session.getAttribute("mem_key");
+if(mem_key !=null){
+%>
 	<jsp:include page="../include/headerLogin.jsp" />
+	<% } else { %>
+		<jsp:forward page="index.jsp" />
+	<%	} %>
             <div id="div">
              <form name="ord2Frm" method="post" action="#">
+             	<input type="hidden" id="result_price" name="result_price" value="0">
+             	<input type="hidden" id="result_point" name="result_point">
              	<h2>배송 정보 입력</h2>
              	<%=pro_name %><%=pro_img %><%=pro_price %><%= cart_tot%><%=mem_name %>
              	<%=mem_tel %><%=mem_email %><%= mem_postal_code%><%=mem_address1 %>
              	<%=mem_address2 %><%=mem_key %><%=r_name %><%= r_phone%><%=r_postal_code %>
-             	<%=r_address1 %><%=r_address2 %><%= memo%>
+             	<%=r_address1 %><%=r_address2 %><%= memo%><%=total_price %>
                   	<section class="section1"> 
                     <div class="pointInfo"><p id="bold">포인트</p> 
                         <p/> 
                         <div>
                             <label for="point"></label>
-                            <input type="text" class="inputline" id="point" name="포인트" size="45" placeholder="0" onchange="set_point(<%=my_point%>, <%=use_point%>, <%=pro_price%>)">
-                            <button name="useall" value="전액 사용" class="btnColor" onclick="use_point(<%=my_point%>, <%=use_point%>, <%=pro_price%>)">포인트 사용</button>
+                            <input type="number" class="inputline" id="use_point" name="point" value="0" size="45" onchange="set_point(<%=my_point%>, 1000, <%=total_price%>)">
+                            <button type="button" name="useall" value="전액 사용" class="btnColor" id="useAll" onclick="use_all(<%=my_point%>, 1000, <%=total_price%>)">전액 사용</button>
                        
-                        <p/> 보유 포인트 <%=my_point %>
-                        <p class="fontColor"> 10 포인트 이상 보유 및 10,000원 이상 구매시 </p>
+                        <p/> 보유 포인트 : <span id="left_pnt"><%=my_point%></span>
+                        <p class="fontColor"> 1000 포인트 이상 보유 및 10,000원 이상 구매시 </p>
                         <p class="fontColor"> 사용 가능</p>
                         </div>
                     </div>
@@ -85,51 +77,49 @@
                     <div class="div1"> <p id="bold">주문 요약</p>
                         <section id="divinline1"><p>상품 가격</p>
                             <p>배송비</p></section>
-                        <section id="divinline2"><p><%=pro_price %>원</p>
+                        <section id="divinline2"><p><%=total_price %>원</p>
                         <%
-						    int a = Integer.parseInt(request.getParameter("pro_price"));
-							int b = 0;
-						    if ( a < 30000) {
-						        b = 3000;
+						    int a;
+						    if (total_price < 30000) {
+						        a = 3000;
 						    } else {
-						        b = 0;
+						        a = 0;
 						    }
 						%>
-                            <p><%=b %>원</p></section>
+                            <p><%=a %>원</p></section>
                         <hr>
                         <section id="divinline1"><p>총 주문 금액</p></section>
                         <%
-                        	int c = Integer.parseInt(request.getParameter("pro_price"));
-                        	int d = b;
-                        	int e = c+d;
+                        	int b = total_price;
+                        	int c = a + b;
                         %>
-                        <section id="divinline3"><p>원</p></section>
+                        <section id="divinline3"><p id="result_po"><%=c%>원</p></section>
                     </div>
                     <div class="getPoint">
                     <%
-                    int Price = Integer.parseInt(request.getParameter("pro_price"));
-                    int getPoint = Price/100;
+                    int Price = total_price;
+                    int get_point = Price/100;
                     %>
-                        포인트 적립 예정 : <%=getPoint%>원
+                        포인트 적립 예정 : <%=get_point%>원
                     </div>
                         <p/>
                     <div class="pointInfo"> <p id="bold">결제 수단</p>
                         <p class="p1">
                         <label for="pay1"></label>
-                        <input type="radio" name="pay" id="pay1">신용카드
+                        <input type="radio" name="pay" id="pay1" value="신용카드">신용카드
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <label for="pay1"></label>
-                        <input type="radio" name="pay" id="pay2">가상계좌</p>
+                        <input type="radio" name="pay" id="pay2" value="가상계좌">가상계좌</p>
 
                         <p class="p1"><label for="pay3"></label>
-                        <input type="radio" name="pay" id="pay3">네이버 페이 
+                        <input type="radio" name="pay" id="pay3" value="네이버페이">네이버 페이 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <label for="pay4"></label>
-                        <input type="radio" name="pay" id="pay4">삼성페이</p>
+                        <input type="radio" name="pay" id="pay4" value="삼성페이">삼성페이</p>
                     </div>
                         <p/>
                     <div class="div1">
@@ -142,83 +132,170 @@
                     </div>
                         <p/><br>
                 </section>
-                	<input type="hidden" name="pro_price" value="<%= pro_price%>">
-					<input type="hidden" name="pro_name" value="<%= pro_name%>">
-					<input type="hidden" name="pro_img" value="<%= pro_img%>">
-					<input type="hidden" name="cart_tot" value="1">
+                	<input type="hidden" name="pro_price" value="<%=pro_price%>">
+					<input type="hidden" name="pro_name" value="<%=pro_name%>">
+					<input type="hidden" name="pro_img" value="<%=pro_img%>">
+					<input type="hidden" name="cart_tot" value="<%=cart_tot%>">
+					<input type="hidden" name="cart_qty" value="<%=cart_qty%>">
+					<input type="hidden" name="total_price" value="<%=total_price%>">
+					<input type="hidden" name="mem_key" value="<%= mem_key%>">
 					<input type="hidden" name="mem_name" value="<%= mem_name%>">
 					<input type="hidden" name="mem_tel" value="<%= mem_tel%>">
 					<input type="hidden" name="mem_email" value="<%= mem_email%>">
 					<input type="hidden" name="mem_address1" value="<%= mem_address1%>">
 					<input type="hidden" name="mem_address2" value="<%= mem_address2%>">
 					<input type="hidden" name="mem_postal_code" value="<%= mem_postal_code%>">
-					<input type="hidden" name="mem_key" value="<%=mem_key%>">
 					<input type="hidden" name="r_name" value="<%=r_name%>">
 					<input type="hidden" name="r_phone" value="<%=r_phone%>">
 					<input type="hidden" name="r_postal_code" value="<%=r_postal_code%>">
 					<input type="hidden" name="r_address1" value="<%=r_address1%>">
 					<input type="hidden" name="r_address2" value="<%=r_address2%>">
 					<input type="hidden" name="memo" value="<%=memo%>">
+					<input type="hidden" name="my_point" value="<%=my_point%>">
+					<input type="hidden" name="point" value="<%=use_point%>">
+					<input type="hidden" name="get_point" value="<%=get_point%>">
+					<input type="hidden" name=shipping_fee value="<%=a%>">
+					<input type="hidden" name=total_price value="<%=c%>">
+					<input type="hidden" name="od_tot" value="<%=od_tot%>">
+					<input type="hidden" name="od_r_info_key" value="<%=od_r_info_key %>">					
                  </form>
             </div>
     <jsp:include page="../include/footer.jsp" />
 </body>	
 </html>
 <script>
+
+	function use_all(myP, min, price) {
+		
+		let my_point = 0; //사용할 포인트 (input 입력값)
+		
+		let left_pnt = document.getElementById("left_pnt").textContent;
+		
+		console.log("price : " + price);
+		
+		if(myP > price){ // 포인트가 가격보다 클때
+			
+			my_point = price;
+			left_pnt = left_pnt - my_point;
+				
+			document.getElementById("use_point").value = price; 
+			console.log("사용 포인트가 구매 금액보다 많을 때, my_point = " + my_point);
+			
+			var final_amount = price + <%=a%> - my_point + "원";
+			
+			document.getElementById("left_pnt").innerHTML = left_pnt;
+			document.getElementById("result_po").innerHTML = final_amount;
+			
+			console.log("마지막 my_point : " + left_pnt); 
+			console.log("마지막 left_pnt : " + final_amount); 
+			
+			document.getElementById("left_pnt").innerHTML = left_pnt;
+			document.getElementById("result_po").innerHTML = final_amount;
+			
+			let result_price = price + <%=a%> - my_point;
+			let result_point = myP - my_point;
+			
+			//최종 주문 금액 querySelector 사용하여 id값이 result_price 인 input 태그에 value 삽입.
+			document.querySelector('#result_price').value = result_price;
+			document.querySelector('#result_point').value = result_point;
+			
+			
+		}
+		
+		if(myP < price){ // 포인트가 가격보다 작을 때
+			
+			if(myP < min) {
+				alert("포인트의 최소 사용 단위는 1000원입니다.");
+				document.getElementById("use_point").value = 0;
+				my_point = 0;
+			}
+			
+			document.getElementById("use_point").value = myP; 
+			
+			let my_point = document.getElementById("left_pnt").textContent; // 5000
+			
+			let left_pnt = document.getElementById("left_pnt").textContent;
+			
+			left_pnt = my_point - my_point;
+			
+			console.log("최종 my_point : " + my_point); // 5000
+			console.log("최종 left_pnt : " + left_pnt); // 0
+			
+			var final_amount = price + <%=a%> - my_point + "원";
+			
+			document.getElementById("left_pnt").innerHTML = left_pnt;
+			document.getElementById("result_po").innerHTML = final_amount;
+			
+			console.log("마지막 my_point : " + left_pnt); // 
+			console.log("마지막 left_pnt : " + final_amount); // 
+			
+			document.getElementById("left_pnt").innerHTML = left_pnt; // 5000
+			document.getElementById("result_po").innerHTML = final_amount; // 18000
+			
+			let result_price = price + <%=a%> - my_point;
+			let result_point = myP - my_point;
+			
+			//최종 주문 금액 querySelector 사용하여 id값이 result_price 인 input 태그에 value 삽입.
+			document.querySelector('#result_price').value = result_price;
+			document.querySelector('#result_point').value = result_point;
+			console.log("***** result_point, input value = " + document.querySelector('#result_point').value);	
+		} 
+		
+	}
+
 	
-	function set_point(myP, useP, price){		
+	function set_point(myP, min, price){		
 		
-		var user_use = parseInt(document.getElementById("point").value);
-		let point = <%=my_point%>;
-		let price = <%=pro_price%>;
+		var my_point = parseInt(document.getElementById("use_point").value);
+		var left_point = document.getElementById("left_pnt").textContent; 
 		
-		if (user_use > point) //입력값이 사용가능 포인트보다 클때
-		{
-			user_use = point;
-			document.getElementById("point").value = point; //input 값 재설정
+	
+		console.log("함수 set_point 실행, 사용자가 쓰려는 금액 : " + my_point);
+		
+		if (my_point > myP){ //입력값이 사용가능 포인트보다 클때
+		
+			my_point = myP;
+			document.getElementById("use_point").value = my_point; 
+			console.log("사용 포인트가 잔여 포인트보다 많을 때, my_point = " + my_point);
 		}
-
-		if(user_use > price ){ //결제금액보다 포인트가 더 클 때
-			user_use = price; //사용할 포인트는 결제금액과 동일하게 설정
-			document.getElementById("point").value = price; //input 값 재설정
+		
+		if(my_point > price){ //결제금액보다 포인트가 더 클 때
+			my_point = price; 
+			document.getElementById("use_point").value = price; 
+			console.log("사용 포인트가 구매 금액보다 많을 때, my_point = " + my_point);
 		}
-
-		var left_point = <%=my_point%> //사용가능 포인트, 남은 포인트 값 설정
-		for (var i = 0; i < left_point.length; i++) {
-
-			left_point[i].innerHTML = <%=my_point%> - user_use; //= 전체 포인트 중에 사용할 포인트빼고 남은 포인트
-
+		
+		if (my_point < min || isNaN(my_point) == true){  //최소 사용 단위보다 작거나 NaN일때
+			alert("포인트의 최소 사용 단위는 1000원입니다.");
+			document.getElementById("use_point").value = 0;
+			my_point = 0;
 		}
-		//최종 결제금액 = 결제금액 - 사용할 포인트
-		last_price = <%=pro_price%> - use_point;
-		document.getElementById("divinline3").value = last_price;
+		
+		var final_point = myP - my_point;
+			
+		var final_amount = price + <%=a%> - my_point + "원";
+		
+		let result_price = price + <%=a%> - my_point;
+		
+		let result_point = myP - my_point;
+		
+		//최종 주문 금액 querySelector 사용하여 id값이 result_price 인 input 태그에 value 삽입.
+		document.querySelector('#result_price').value = result_price;
+		
+		document.querySelector('#result_point').value = result_point;
+		console.log("result_point 2, input value = " + document.querySelector('#result_point').value);	
+		
+		document.getElementById("left_pnt").innerHTML = final_point;
+		document.getElementById("result_po").innerHTML = final_amount;
+
+		console.log("마지막, my_point = " + my_point);
+		console.log("마지막, left_pnt = " + left_point);
+		console.log("마지막, final_point = " + final_point);
 	}
 	
-	function pay(){
-		let card_checked = document.getElementById('pay1').checked;
-		let account_checked = document.getElementById('pay2').checked;
-		let naver_checked = document.getElementById('pay3').checked;
-		let samsung_checked = document.getElementById('pay4').checked;
-		
-		let payment document.querySelectorAll('pay').value;
-		
-		if (card_checked == true){
-			payment = "신용카드";
-		}
-		if (account_checked == true){
-			payment = "가상계좌";
-		}
-		if (naver_checked == true){
-			payment = "네이버페이";
-		}
-		if (samsung_checked == true){
-			payment = "삼성페이";
-		}
-		console.log(payment);
-	}
 	
 	function final(){
-		document.ord2Frm.action = "orderDetail.jsp";
+		document.ord2Frm.action = "order_detail_Servlet";
 		document.ord2Frm.submit();
 	}
 </script>

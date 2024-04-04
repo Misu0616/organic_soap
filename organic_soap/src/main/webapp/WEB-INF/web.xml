@@ -94,4 +94,48 @@
 	<url-pattern>/order/order2Servlet</url-pattern>
   </servlet-mapping>
   
+      <servlet>
+  	<servlet-name>BoardPostServlet</servlet-name>
+  	<servlet-class>board.BoardPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BoardPostServlet</servlet-name>
+	<url-pattern>/board/boardPost</url-pattern>
+  </servlet-mapping>
+
+    <servlet>
+  	<servlet-name>BoardUpdateServlet</servlet-name>
+  	<servlet-class>board.BoardUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BoardUpdateServlet</servlet-name>
+	<url-pattern>/board/boardUpdate</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+  	<servlet-name>BoardDeleteServlet</servlet-name>
+  	<servlet-class>board.BoardDeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BoardDeleteServlet</servlet-name>
+	<url-pattern>/board/boardDelete</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>QnaPostServlet</servlet-name>
+  	<servlet-class>board.QnaPostServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>QnaPostServlet</servlet-name>
+	<url-pattern>/board/qnaPost</url-pattern>
+  </servlet-mapping>
+
+   <servlet>
+  	<servlet-name>QnaUpdateServlet</servlet-name>
+  	<servlet-class>board.QnaUpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>QnaUpdateServlet</servlet-name>
+	<url-pattern>/board/qnaUpdate</url-pattern>
+  </servlet-mapping>
 </web-app>

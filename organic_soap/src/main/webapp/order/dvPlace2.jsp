@@ -3,14 +3,12 @@
 <%@ page import = "java.util.Vector" %>
 <%@ page import ="product.productBean" %>
 <%@ page import="order.r_inform" %>
+<%@ page import ="order.order_cart_bean" %>
 <jsp:useBean id="oMgr" class="order.order_mgr" />
+<jsp:useBean id="mMgr" class="member.memberMgr"/>
 <%
 	request.setCharacterEncoding("utf-8");
 	
-	String pro_name = request.getParameter("pro_name");
-	String pro_img = request.getParameter("pro_img");
-	String pro_price = request.getParameter("pro_price");
-	String cart_tot = request.getParameter("cart_tot");
 	String mem_name = request.getParameter("mem_name");
 	String mem_tel = request.getParameter("mem_tel");
 	String mem_email = request.getParameter("mem_email");
@@ -18,9 +16,13 @@
 	String mem_address1 = request.getParameter("mem_address1");
 	String mem_address2 = request.getParameter("mem_address2");
 
-	String mem_key = request.getParameter("mem_key");
 	
-	System.out.println(mem_key);	
+	order_cart_bean ocb = new order_cart_bean();
+	String pro_name = "";
+	String pro_img = "";
+	int pro_price = 0;
+	int cart_tot = 0;
+	int cart_qty = 0;
 	
 %>
 <!DOCTYPE html>
@@ -32,22 +34,56 @@
 <script type="text/javascript" src="../js/order.js"></script>
 </head>
 <body>
+<%
+
+String mem_key = (String)session.getAttribute("mem_key");
+if(mem_key !=null){
+%>
 	<jsp:include page="../include/headerLogin.jsp" />
+	<% } else { %>
+		<jsp:forward page="index.jsp" />
+	<%	} %>
             <div id="div">
                 <h2>배송 정보 입력</h2>
                 <section class="section1">
                 <form name="ordFrm" method="post" action="#">
                     <div class="div1">주문 상품 정보
                         <p/>
+                        <%
+                        	
+	                        Vector<order_cart_bean> vlist = oMgr.select_cart(mem_key);
+	                        System.out.println("resultList.size jsp : " + vlist.size());
+	                        
+		                        for(int i=0; i<vlist.size(); i++){
+		                        	order_cart_bean ocb1 = vlist.get(i);
+		                        	
+			                        cart_tot = ocb1.getCart_tot();
+					                cart_qty = ocb1.getCart_qty();
+					               
+			                        pro_name = ocb1.getPro_name();
+			                        pro_img = ocb1.getPro_img();
+					                pro_price = ocb1.getPro_price();
+					                
+					                System.out.println("jsp cart_tot : " + cart_tot);
+					            	System.out.println("jsp cart_qty : " + cart_qty);
+					                System.out.println("jsp pro_name : " + pro_name);
+					                System.out.println("jsp cart_qty : " + pro_img);
+					                System.out.println("jsp pro_price : " + pro_price);
+	                        		
+		                        
+	                     %>
                         <div class="div11"><a href="../product/product_2_hair_1.html"><img class="imgSmall" src="../images/<%=pro_img%>"></a>
                         <div class="div12"><p><%=pro_name%> </p>
-                        	<p><%=cart_tot %>개</p>
-                            <p id="bold"><%=pro_price%>원</p>
+                        	<p><%=cart_qty%>개</p>
+	                        <% cart_tot = pro_price*cart_qty; %>
+	                        <p id="bold"><%=pro_price%>원</p>
                         </div>
                         </div>
+                         <%} %>
                         <%
-						    int a;
-						    if (Integer.parseInt(request.getParameter("pro_price")) < 30000) {
+	                        int a;
+						    if (pro_price < 30000) {
+						    	System.out.println("3 pro_price : " + pro_price);
 						        a = 3000;
 						    } else {
 						        a = 0;
@@ -85,14 +121,14 @@
                             </div>
                         <p/> 
                         <% 
-	                        Vector<r_inform> vlist = null;
-	                    	vlist = oMgr.getdvPlace2(Integer.parseInt(mem_key));
+	                        Vector<r_inform> vlist4 = null;
+	                    	vlist4 = oMgr.getdvPlace2(mem_key);
 	                    	
-	                    	int vlistsize = vlist.size();
+	                    	int vlistsize = vlist4.size();
 	                    	
-	                    	  for(int i = 0; i < vlist.size(); i++) {
+	                    	  for(int i = 0; i < vlist4.size(); i++) {
                      		
-                     			r_inform dto = vlist.get(i);
+                     			r_inform dto = vlist4.get(i);
                      		
 	                     		int r_info_key = dto.getR_info_key();
 	                     		String r_name = dto.getR_name();
@@ -125,28 +161,53 @@
                             <p/>
                         <textarea class="request" name="memo" id="memo" placeholder="배송 메모를 입력해주세요."><%=memo%></textarea>
                         <label for="check1"></label>
+                        <input type="hidden" name="od_r_info_key" value="<%=r_info_key %>">
+                        <% System.out.println("dvPlace2 r_infokey : " + r_info_key); %>
                        <%
                      			    }
                         %>
                         <% } %>
                         <p/>
-                        <input type="hidden" name="mem_key" id="memkey" value="1">
                     </div>
                         <p/>
                     <div>
                          <button type="button" class="finalpay" name="paylast" value="lastpay" onclick="nextPage()">다음으로</button>
                     </div>
-                    <input type="hidden" name="pro_price" value="<%= pro_price%>">
-					<input type="hidden" name="pro_name" value="<%= pro_name%>">
-					<input type="hidden" name="pro_img" value="<%= pro_img%>">
-					<input type="hidden" name="cart_tot" value="1">
+                    <%
+					int sum2 = 0;
+                    int num1 = 0;    		
+                   	for(int i=0; i<vlist.size(); i++){
+                   		
+                   			order_cart_bean ocb1 = vlist.get(i);
+                   			
+                   			pro_price = ocb1.getPro_price();
+                   			cart_qty = ocb1.getCart_qty();
+                   			int sum1 = 0;
+                   			 
+                   			sum1 = pro_price * cart_qty;
+                   			sum2 += sum1;
+                   			
+                   			
+                   			num1 += cart_qty; 
+                   	
+                   	}
+					
+					%>
+                    <input type="hidden" name="pro_price" value="<%=pro_price%>">
+					<input type="hidden" name="pro_name" value="<%=pro_name%>">
+					<input type="hidden" name="pro_img" value="<%=pro_img%>">
+					<input type="hidden" name="cart_tot" value="<%=cart_tot%>">
+					<input type="hidden" name="cart_qty" value="<%=cart_qty%>">
+					<input type="hidden" name="total_price" value="<%=sum2%>">
+					<input type="hidden" name="od_tot" value="<%=num1%>">
+					<%System.out.println("dvPlace2 : " + sum2); %>
+					<input type="hidden" name="mem_key" value="<%= mem_key%>">
 					<input type="hidden" name="mem_name" value="<%= mem_name%>">
 					<input type="hidden" name="mem_tel" value="<%= mem_tel%>">
 					<input type="hidden" name="mem_email" value="<%= mem_email%>">
 					<input type="hidden" name="mem_address1" value="<%= mem_address1%>">
 					<input type="hidden" name="mem_address2" value="<%= mem_address2%>">
 					<input type="hidden" name="mem_postal_code" value="<%= mem_postal_code%>">
-					<input type="hidden" name="mem_key" value="<%=mem_key%>">
                 </form>
             </section>
          </div>
