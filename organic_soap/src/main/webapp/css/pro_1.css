@@ -72,18 +72,19 @@ body {
     padding-left: 250px;
     font-family: 'Gowun Dodum';
 }
-#save_1 {
-    border: none;
-    background-color: #fff;
-   
-}
+
 .item-te{
     padding-left: 15px;
     font-size: large;
     text-align: center;
     color: #252525;
 }
+#icon1{
+	border:none;
+	background-color: #fff;
+}
 .material-symbols-outlined {
+	
     padding-left: 145px;
     cursor:pointer;
 	font-variation-settings:

@@ -32,12 +32,10 @@
                         <li id="gory2"><a href="product_1_living.jsp"><h3>&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;Living</h3></a></li>
                     </ul>
                 </div>   
-                <form name="pro" method="post"> 
-					<input type="hidden" name="pro_img" value="living_11.png"> 
-					<input type="hidden" name="pro_name" value="친환경 고체 세탁 세제 70정"> 
-					<input type="hidden" name="pro_price" id="price11">
-					<input type="hidden" name="pro_count" id="result11">
-					             
+                <form name="pro" method="post" action="wishServlet">	
+                	<input type="hidden" name="wish_pro_key" value="43">
+					<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">   
+					       
                     <div class="po1">
                         <div id="po2">
                             <img src="../images/living_11.png" id="po3" onclick="displaySrc()">
@@ -53,7 +51,14 @@
                             <div id="heart"> 
                                 <span class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite </span>
                             </div>
-                            <hr>
+                    </form> 
+					            <hr>
+					<form name="pro" method="post" action="productServlet">				
+						<input type="hidden" name="pro_count" id="result11">
+						<input type="hidden" name="pro_price" id="price11">
+						<input type="hidden" name="cart_pro_key" value="43">
+						<input type="hidden" name="cart_mem_key" value="<%= mem_key%>">
+						
                             <div class="tt">
                                 <p><b>잔여세제 걱정 없는 무계면 저자극 고체 세탁세제</b></p>
                                 <br>
@@ -73,25 +78,22 @@
                                         <div class="addOption2">
                                             <div class="optionTitle" id="result2"></div>
                                             <input type='button' onclick='count2("minus")' value='-' class="plusminus">
-                                            <div id='result1' class="zero">1</div>
+                                            <div id='result1' class="zero">0</div>
                                             <input type='button' onclick='count("plus")' value='+' class="plusminus">
-                                            
-                                            <input type="hidden" name="plus" value="1추가">
-                                            <input type="hidden" name="minus" value="1빼기">
                                         </div>
                                     </div>
                                     <div class="total_price">
                                        <div class="total_price1"><b>총 합계금액</b></div>
                                         <div class="total_price2">
-                                            <strong id="price">29000</strong> 원
+                                            <strong id="price">0</strong> 원
                                         </div>                                              
                                     </div>
                                     <p/>
                                     <div>
-                                        <div class="buy">
-	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
-	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
-	                                    </div>
+										<div class="buy">
+		                                    <button id="buy1" onclick="cart()"><h3>구매하기</h3></button>                                          
+		                                    <button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+		                                </div>
                                     </div>
                                 </div>
                             </div>

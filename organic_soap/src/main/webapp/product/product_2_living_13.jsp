@@ -78,25 +78,22 @@
                                         <div class="addOption2">
                                             <div class="optionTitle" id="result2"></div>
                                             <input type='button' onclick='count2("minus")' value='-' class="plusminus">
-                                            <div id='result1' class="zero">1</div>
+                                            <div id='result1' class="zero">0</div>
                                             <input type='button' onclick='count("plus")' value='+' class="plusminus">
-                                            
-                                            <input type="hidden" name="plus" value="1추가">
-                                            <input type="hidden" name="minus" value="1빼기">
                                         </div>
                                     </div>
                                     <div class="total_price">
                                        <div class="total_price1"><b>총 합계금액</b></div>
                                         <div class="total_price2">
-                                            <strong id="price">28000</strong> 원
+                                            <strong id="price">0</strong> 원
                                         </div>                                              
                                     </div>
                                     <p/>
                                     <div>
-                                        <div class="buy">
-	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
-	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
-	                                    </div>
+										<div class="buy">
+		                                    <button id="buy1" onclick="cart()"><h3>구매하기</h3></button>                                          
+		                                    <button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+		                                </div>
                                     </div>
                                 </div>
                             </div>

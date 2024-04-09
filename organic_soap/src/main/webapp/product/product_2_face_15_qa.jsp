@@ -32,9 +32,9 @@
                         <li id="gory2"><a href="product_1_face.jsp"><h3>&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;Face</h3></a></li>
                     </ul>
                 </div>   
-                <form name="pro" method="post" action="wishServlet">	
+                <form name="pro" method="post" action="">	
                 	<input type="hidden" name="wish_pro_key" value="26">
-					<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">   
+					<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>"> 
 					      
                     <div class="po1">
                         <div id="po2">
@@ -57,7 +57,7 @@
 					<input type="hidden" name="pro_count" id="result11">
 					<input type="hidden" name="pro_price" id="price11">
 					<input type="hidden" name="cart_pro_key" value="26">
-					<input type="hidden" name="cart_mem_key" value="<%= mem_key%>">
+					<input type="hidden" id="mm1" name="cart_mem_key" value="<%= mem_key%>">
 					
                             <div class="tt">
                                 <p><b>가꿈비누 페퍼민트
@@ -79,25 +79,22 @@
                                         <div class="addOption2">
                                             <div class="optionTitle" id="result2"></div>
                                             <input type='button' onclick='count2("minus")' value='-' class="plusminus">
-                                            <div id='result1' class="zero">1</div>
+                                            <div id='result1' class="zero">0</div>
                                             <input type='button' onclick='count("plus")' value='+' class="plusminus">
-                                            
-                                            <input type="hidden" name="plus" value="1추가">
-                                            <input type="hidden" name="minus" value="1빼기">
                                         </div>
                                     </div>
                                     <div class="total_price">
                                        <div class="total_price1"><b>총 합계금액</b></div>
                                         <div class="total_price2">
-                                            <strong id="price">5500</strong> 원
+                                            <strong id="price">0</strong> 원
                                         </div>                                              
                                     </div>
                                     <p/>
                                     <div>
-                                        <div class="buy">
-	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
-	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
-	                                    </div>
+										<div class="buy">
+		                                    <button id="buy1" onclick="cart()"><h3>구매하기</h3></button>                                          
+		                                    <button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+		                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +194,43 @@ function count2(type)  {
             console.log("div price 태그 = " + c.textContent);
             console.log("인풋태그 price 태그 = " + d.value);
         }    
+//찜하기 기능
 
+function save() {
+    //save함수 호출시 icon_color 변수 선언 하고, 변수에 id값이 icon인 요소를 담는다.
+    console.log("save 함수 진입.");
+   
+    var key;
+
+    key = document.querySelector("#mm").value;
+    console.log("key 변수 값 = " + key);
+
+	if(key == "null"){
+		alert("로그인하셔야 본 서비스를 이용하실 수 있습니다.");
+	}else{
+		alert("완료!");
+		document.submit();
+		document.action="../product/wishServlet";
+	}
+ 
+}
+
+//페이지 이동
+function cart(){
+	console.log("cart 메서드 호출");	
+     var ckey;
+
+    ckey = document.querySelector("#mm1").value;
+    console.log("key 변수 값 = " + key);
+
+	if(key == "null"){
+		alert("로그인하셔야 본 서비스를 이용하실 수 있습니다.");
+	}else{
+		alert("완료!");
+		document.submit();
+		document.action="../product/productServlet";
+	}	
+} 
 </script>
 
 

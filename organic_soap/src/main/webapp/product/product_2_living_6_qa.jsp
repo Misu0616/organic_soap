@@ -32,12 +32,10 @@
                         <li id="gory2"><a href="product_1_living.jsp"><h3>&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;Living</h3></a></li>
                     </ul>
                 </div>   
-                <form name="pro" method="post"> 
-					<input type="hidden" name="pro_img" value="living_6.png"> 
-					<input type="hidden" name="pro_name" value="리포레스트 인센스 스틱"> 
-					<input type="hidden" name="pro_price" id="price11">
-					<input type="hidden" name="pro_count" id="result11">
-					        
+                <form name="pro" method="post" action="">	
+                	<input type="hidden" name="wish_pro_key" value="38">
+					<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>"> 
+					    
                     <div class="po1">
                         <div id="po2">
                             <img src="../images/living_6.png" id="po3" onclick="displaySrc()">
@@ -52,7 +50,14 @@
                             <div id="heart"> 
                                 <span class="material-symbols-outlined" id="icon1" onclick="style.color='red',save()">favorite </span>
                             </div>
-                            <hr>
+                    </form> 
+					            <hr>
+					<form name="pro" method="post" action="productServlet">				
+						<input type="hidden" name="pro_count" id="result11">
+						<input type="hidden" name="pro_price" id="price11">
+						<input type="hidden" name="cart_pro_key" value="38">
+						<input type="hidden" id="mm1" name="cart_mem_key" value="<%= mem_key%>">
+						
                             <div class="tt">
                                 <p><b>한국 전통 방식으로 포근한 나무의 향기를 담아 일상 속 나의 마음을 다독이는 인센스 스틱과 산불 피해목을 활용한 재날림 방지 인센스 홀더</b></p>
                                 <br>
@@ -72,25 +77,22 @@
                                         <div class="addOption2">
                                             <div class="optionTitle" id="result2"></div>
                                             <input type='button' onclick='count2("minus")' value='-' class="plusminus">
-                                            <div id='result1' class="zero">1</div>
+                                            <div id='result1' class="zero">0</div>
                                             <input type='button' onclick='count("plus")' value='+' class="plusminus">
-                                            
-                                            <input type="hidden" name="plus" value="1추가">
-                                            <input type="hidden" name="minus" value="1빼기">
                                         </div>
                                     </div>
                                     <div class="total_price">
                                        <div class="total_price1"><b>총 합계금액</b></div>
                                         <div class="total_price2">
-                                            <strong id="price">18000</strong> 원
+                                            <strong id="price">0</strong> 원
                                         </div>                                              
                                     </div>
                                     <p/>
                                     <div>
-                                        <div class="buy">
-	                                    	<button id="buy1" onclick="order()"><h3>구매하기</h3></button>                                          
-	                                    	<button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
-	                                    </div>
+										<div class="buy">
+		                                    <button id="buy1" onclick="cart()"><h3>구매하기</h3></button>                                          
+		                                    <button id="buy2" onclick="cart()"><h3>장바구니</h3></button>
+		                                </div>
                                     </div>
                                 </div>
                             </div>
@@ -187,8 +189,43 @@ function count2(type)  {
         
             c.innerText = total;
             d.value = total;
-            console.log("div price 태그 = " + c.textContent);
-            console.log("인풋태그 price 태그 = " + d.value);
+            
         }    
+//찜하기 기능
 
+function save() {
+    //save함수 호출시 icon_color 변수 선언 하고, 변수에 id값이 icon인 요소를 담는다.
+    console.log("save 함수 진입.");
+   
+    var key;
+
+    key = document.querySelector("#mm").value;
+    console.log("key 변수 값 = " + key);
+
+	if(key == "null"){
+		alert("로그인하셔야 본 서비스를 이용하실 수 있습니다.");
+	}else{
+		alert("완료!");
+		document.submit();
+		document.action="../product/wishServlet";
+	}
+ 
+}
+
+//페이지 이동
+function cart(){
+	console.log("cart 메서드 호출");	
+     var ckey;
+
+    ckey = document.querySelector("#mm1").value;
+    console.log("key 변수 값 = " + key);
+
+	if(key == "null"){
+		alert("로그인하셔야 본 서비스를 이용하실 수 있습니다.");
+	}else{
+		alert("완료!");
+		document.submit();
+		document.action="../product/productServlet";
+	}	
+} 
 </script>

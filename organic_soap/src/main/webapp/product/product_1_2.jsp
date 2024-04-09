@@ -8,7 +8,6 @@
         <meta charset="UTF-8">
         <title>OrganicSOAPS</title>
         <link rel="stylesheet" href="../css/pro_1_2.css">
-        <script src="../js/product_list_all.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     </head>
     <body>
@@ -41,9 +40,9 @@
 		         <div class="items">
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="21">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>"> 							
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>"> 							
 			                <a href="product_2_face_10.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_10.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -56,9 +55,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="22">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_11.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_11.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -71,7 +70,7 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="23">
 							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_12.jsp" style="text-decoration-line: none;">
@@ -86,9 +85,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="24">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_13.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_13.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -101,9 +100,9 @@
 		            </div> 
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="25">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_14.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_14.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -116,9 +115,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="26">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_15.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_15.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -131,9 +130,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="27">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_16.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_16.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -146,9 +145,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="28">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_17.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_17.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -161,9 +160,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="29">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_18.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_18.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -176,9 +175,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="30">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_19.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/face_19.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -191,9 +190,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="31">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_20.html" style="text-decoration-line: none;">
 			                    <img src="../images/face_20.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -206,9 +205,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="32">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_face_21.html" style="text-decoration-line: none;">
 			                    <img src="../images/face_21.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -221,9 +220,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="9">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_hair_10.html" style="text-decoration-line: none;">
 			                    <img src="../images/hair_10.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -236,9 +235,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="10">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_hair_11.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/hair_11.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -251,9 +250,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="11">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_hair_12.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/hair_12.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -266,9 +265,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="12">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_hair_13.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/hair_13.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -281,9 +280,9 @@
 		            </div> 
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="37">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_living_5.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/living_5.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -296,9 +295,9 @@
 		            </div> 
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="38">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_living_6.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/living_6.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -311,9 +310,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="39">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_living_7.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/living_7.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -326,9 +325,9 @@
 		            </div>
 		
 		            <div class="item-ima" >
-		            	<form method="post" action="wishServlet">
+		            	<form method="post" action="">
 				            <input type="hidden" name="wish_pro_key" value="40">
-							<input type="hidden" name="wish_mem_key" value="<%= mem_key%>">
+							<input type="hidden" id="mm" name="wish_mem_key" value="<%= mem_key%>">
 			                <a href="product_2_living_8.jsp" style="text-decoration-line: none;">
 			                    <img src="../images/living_8.png" width="300px" height="300px">
 			                    <div class="item-te">
@@ -361,3 +360,34 @@
         </div>
     </body>
 </html>
+<script>
+//찜하기 기능
+
+function save() {
+    //save함수 호출시 icon_color 변수 선언 하고, 변수에 id값이 icon인 요소를 담는다.
+    console.log("save 함수 진입.");
+   
+    var key;
+
+    key = document.querySelector("#mm").value;
+    console.log("key 변수 값 = " + key);
+
+	if(key == "null"){
+		alert("로그인하셔야 본 서비스를 이용하실 수 있습니다.");
+	}else{
+		alert("완료!");
+		document.submit();
+		document.action="../product/wishServlet";
+	}
+ 
+}
+
+//페이지 이동
+function cart(){
+	console.log("cart 메서드 호출");	
+    
+	document.submit();
+	document.action="../product/productServlet";
+}
+
+</script>

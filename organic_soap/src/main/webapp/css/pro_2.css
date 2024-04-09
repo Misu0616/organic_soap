@@ -170,6 +170,7 @@ body {
 }
 #buy2 {
     border: 1px solid rgb(244,195,178);
+    background-color: white;
 }
 #buy2:hover {
     border: 1px solid rgb(244,195,178);
@@ -214,6 +215,10 @@ body {
 .de3{
     margin-left: 400px;
     margin-top: -65px;
+}
+.de4{
+    margin-top: 30px;
+    margin-left: 500px;
 }
 /* 상품정보제공고시 시작 */
 .info {
