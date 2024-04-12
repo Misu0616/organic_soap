@@ -21,7 +21,7 @@ public class mp_order_detail_bean {
 	private String r_address1;
 	private String r_address2;
 	private String request;
-	private int od_tot;
+	private int od_tot; 
 	private String pay;
 	
 	

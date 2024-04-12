@@ -19,7 +19,7 @@ public class mp_order_detail_mgr {
 			
 			e.printStackTrace();
 		}
-	}
+	} 
 	
 	// 이름, 포인트 조회하는 메서드 (마이페이지 공용)
 	

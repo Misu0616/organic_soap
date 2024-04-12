@@ -102,7 +102,7 @@ if(mem_key !=null){
 					pro_link = bean.getPro_link();
 					cart_qty = bean.getCart_qty();
 					od_status = bean.getOd_status();
-					
+					 
 					System.out.println("주문 날짜 for문 끝");
 										
 		%>

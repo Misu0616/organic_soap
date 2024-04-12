@@ -13,7 +13,7 @@ public class mp_order_bean {
 	private int pro_price;
 	private String pro_link;
 	private int cart_qty;
-	
+	 
 	
 	public String getPro_link() {
 		return pro_link;

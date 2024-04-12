@@ -30,7 +30,7 @@ if(mem_key !=null){
 <!-- 본문 시작 -->
 	<div class="mypage">
 		<nav id="sidebar">
-			<ul>
+			<ul> 
 				<li><a href="order.jsp">주문 조회</a></li>
 				<li><a href="wish_list.jsp">위시리스트</a></li>
 				<li><a href="cancel.jsp">취소/교환/반품</a></li>

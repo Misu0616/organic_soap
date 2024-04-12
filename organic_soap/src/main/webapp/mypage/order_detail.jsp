@@ -248,7 +248,7 @@ if(mem_key !=null){
 					</tbody>
 				</table>
 			</div>
-		</div>
+		</div> 
 	</div>
 <!-- 본문 끝 -->
 <!-- 푸터 시작 -->
