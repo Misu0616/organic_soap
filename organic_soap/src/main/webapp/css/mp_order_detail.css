@@ -57,19 +57,24 @@ body {
 /* 사이드바 끝 */
 
 /* 프로필 공간 시작*/
-#icon {
+#mem_icon {
     display: inline;
     border-radius: 50%;
     border: 1px solid #EFEFEF;
     margin-top: 20px;
     float: left;
 }
+#mem_icon img {
+	width: 100px;
+	height: 100px;
+}
 #info {
-    display: inline-block;
+    display: inline;
     font-size: 15px;
     line-height: 2em;
     padding-left: 30px;
     padding-top: 40px;
+    float: left;
 }
 #name {
     font-size: 25px;
